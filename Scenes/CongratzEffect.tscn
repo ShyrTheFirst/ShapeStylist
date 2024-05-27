@@ -1,0 +1,66 @@
+[gd_scene load_steps=12 format=2]
+
+[sub_resource type="Curve" id=12]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.011236, -1.63635 ), 0.0, 2599.05, 0, 0, Vector2( 1, -1.63635 ), 3349.64, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="Curve" id=3]
+min_value = -1.0
+_data = [ Vector2( 0, -1 ), 0.0, 6.49653, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -6.81818 ), 0.0, 950.682, 0, 0, Vector2( 1, 200 ), -627.046, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 0.244318 ), 0.0, 5.12424, 0, 0, Vector2( 1, 1 ), -0.755427, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 100, 100 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 13 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+radial_accel_curve = SubResource( 14 )
+scale_curve = SubResource( 16 )
+color = Color( 0, 1, 0.0588235, 1 )
+hue_variation = 1.0
+hue_variation_curve = SubResource( 4 )
+
+[sub_resource type="Gradient" id=18]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
+width = 50
+
+[node name="CongratzEffect" type="Particles2D"]
+rotation = -1.5708
+emitting = false
+amount = 500
+lifetime = 5.0
+one_shot = true
+process_material = SubResource( 17 )
+texture = SubResource( 19 )

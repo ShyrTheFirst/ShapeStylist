@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Game_Start.gd" type="Script" id=2]
+[ext_resource path="res://Assets/icon.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Music and SFX/intro.wav" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+size = 80
+outline_size = 3
+outline_color = Color( 0.184314, 0.54902, 0.129412, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="Shader" id=2]
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform float percentage: hint_range(0.0, 1.0, 0.01) = 1.0;
+uniform float angle: hint_range(0.0, 6.28318530718, 0.1308996939) = 0.0;
+uniform float line_width: hint_range(0.0, 1.0, 0.01) = 0.02;
+uniform vec4 line_color: hint_color = vec4(1.0);
+
+// --- Functions --- //
+vec2 rotate(vec2 _pos, float _sine, float _cosine) {
+	return vec2(_pos.x * _cosine + _pos.y * -_sine, _pos.x * _sine + _pos.y * _cosine);
+}
+
+void fragment() {
+	float sine = sin(angle);
+	float cosine = cos(angle);
+	float len = abs(sine) + abs(cosine);
+	float dist = (rotate(((UV) - vec2(0.5)) / len, sine, cosine).y + 0.5) * (1.0 - line_width);
+	float line = step(percentage, dist) * TIME;
+	COLOR.a -= line;
+	COLOR.rgb = mix(COLOR.rgb, line_color.rgb, step(percentage, dist + line_width));
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
+shader_param/percentage = 1.0
+shader_param/angle = 3.4034
+shader_param/line_width = 0.0
+shader_param/line_color = Color( 1, 1, 1, 1 )
+
+[node name="Game_Start" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+self_modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 861.0
+margin_top = 501.0
+margin_right = 1008.0
+margin_bottom = 532.0
+text = "A SG Studios game"
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/Panel/Label"]
+position = Vector2( 66, 37 )
+texture = ExtResource( 3 )
+
+[node name="GameName2" type="Label" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -254.0
+margin_top = 154.0
+margin_right = 186.0
+margin_bottom = 234.0
+custom_fonts/font = SubResource( 1 )
+text = "ShapeStylist"
+
+[node name="GameName" type="Label" parent="CanvasLayer/Panel"]
+material = SubResource( 3 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -254.0
+margin_top = 154.0
+margin_right = 186.0
+margin_bottom = 234.0
+custom_fonts/font = SubResource( 1 )
+text = "ShapeStylist"
+
+[node name="Start" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
+
+[connection signal="timeout" from="Start" to="." method="_on_Start_timeout"]

@@ -1,0 +1,169 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Assets/buttons/button1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/buttons/button_hover.png" type="Texture" id=2]
+[ext_resource path="res://Assets/buttons/button_clicked.png" type="Texture" id=3]
+[ext_resource path="res://Assets/buttons/Coin.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scenes/Stages/Scripts/End_Of_The_Week.gd" type="Script" id=6]
+[ext_resource path="res://Assets/background_2.png" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 5 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.466667, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.478431, 0.027451, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.45098, 0.0509804, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=9]
+size = 50
+outline_size = 2
+outline_color = Color( 0.00392157, 0.443137, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[node name="End_Of_The_Week" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background2" type="Sprite" parent="CanvasLayer/Panel2"]
+position = Vector2( 509.5, 292.048 )
+scale = Vector2( 1.021, 1.021 )
+texture = ExtResource( 7 )
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel2"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -240.0
+margin_top = -51.0
+margin_right = 272.0
+margin_bottom = -19.0
+custom_fonts/font = SubResource( 10 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+text = "Menu"
+
+[node name="Total_geral" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 62.0
+margin_top = 80.0
+margin_right = 442.0
+margin_bottom = 131.0
+custom_fonts/font = SubResource( 4 )
+text = "Money earned"
+
+[node name="valor_total" type="Label" parent="CanvasLayer/Panel2/Total_geral"]
+margin_left = 761.0
+margin_right = 842.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 5 )
+text = "80"
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Panel2/Total_geral"]
+position = Vector2( 839, 24 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Erros_feitos" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 60.0
+margin_top = 199.0
+margin_right = 453.0
+margin_bottom = 250.0
+custom_fonts/font = SubResource( 6 )
+text = "Mistakes"
+
+[node name="quant_erros" type="Label" parent="CanvasLayer/Panel2/Erros_feitos"]
+margin_left = 761.0
+margin_right = 842.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 7 )
+text = "20"
+
+[node name="Clientes_satisfeitos" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 274.0
+margin_top = 315.0
+margin_right = 575.0
+margin_bottom = 366.0
+custom_fonts/font = SubResource( 8 )
+text = "satisfied:"
+
+[node name="num_clientes" type="Label" parent="CanvasLayer/Panel2/Clientes_satisfeitos"]
+margin_left = 548.0
+margin_right = 598.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 9 )
+text = "0"
+
+[node name="Clientes_insatisfeitos2" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 201.0
+margin_top = 385.0
+margin_right = 502.0
+margin_bottom = 436.0
+custom_fonts/font = SubResource( 11 )
+text = "Not satisfied:"
+
+[node name="num_clientes2" type="Label" parent="CanvasLayer/Panel2/Clientes_insatisfeitos2"]
+margin_left = 621.0
+margin_right = 671.0
+margin_bottom = 51.0
+custom_fonts/font = SubResource( 12 )
+text = "0"
+
+[connection signal="pressed" from="CanvasLayer/Panel2/Button" to="." method="_on_Button_pressed"]

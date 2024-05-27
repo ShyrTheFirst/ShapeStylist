@@ -1,0 +1,387 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://Assets/robot_with_head.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Scripts/Clients.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/metric_tape.png" type="Texture" id=4]
+[ext_resource path="res://Assets/buttons/Disabled-OK.png" type="Texture" id=5]
+[ext_resource path="res://Assets/buttons/Hover-OK.png" type="Texture" id=6]
+[ext_resource path="res://Assets/buttons/OK.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/callables/Scripts/Popup_message.gd" type="Script" id=9]
+[ext_resource path="res://Assets/buttons/Clicked-OK.png" type="Texture" id=10]
+[ext_resource path="res://Assets/tip1.png" type="Texture" id=11]
+
+[sub_resource type="DynamicFont" id=1]
+size = 25
+outline_size = 27
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=7]
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=6]
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.6433
+
+[sub_resource type="Curve" id=12]
+min_value = -360.0
+max_value = 360.0
+_data = [ Vector2( 0.011236, -1.63635 ), 0.0, 2599.05, 0, 0, Vector2( 1, -1.63635 ), 3349.64, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=13]
+curve = SubResource( 12 )
+
+[sub_resource type="Curve" id=3]
+min_value = -1.0
+_data = [ Vector2( 0, -1 ), 0.0, 6.49653, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=4]
+curve = SubResource( 3 )
+
+[sub_resource type="Curve" id=5]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0, -6.81818 ), 0.0, 950.682, 0, 0, Vector2( 1, 200 ), -627.046, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 5 )
+
+[sub_resource type="Curve" id=15]
+_data = [ Vector2( 0, 0.244318 ), 0.0, 5.12424, 0, 0, Vector2( 1, 1 ), -0.755427, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=16]
+curve = SubResource( 15 )
+
+[sub_resource type="ParticlesMaterial" id=17]
+emission_shape = 2
+emission_box_extents = Vector3( 100, 100, 100 )
+flag_disable_z = true
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1000.0
+angular_velocity = 720.0
+angular_velocity_random = 1.0
+angular_velocity_curve = SubResource( 13 )
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 100.0
+radial_accel = 100.0
+radial_accel_random = 1.0
+radial_accel_curve = SubResource( 14 )
+scale_curve = SubResource( 16 )
+color = Color( 0, 1, 0.0588235, 1 )
+hue_variation = 1.0
+hue_variation_curve = SubResource( 4 )
+
+[sub_resource type="Gradient" id=18]
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1 )
+
+[sub_resource type="GradientTexture" id=19]
+gradient = SubResource( 18 )
+width = 50
+
+[sub_resource type="DynamicFont" id=26]
+size = 25
+outline_size = 5
+outline_color = Color( 0.109804, 0.388235, 0.00784314, 1 )
+extra_spacing_char = 15
+font_data = ExtResource( 3 )
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "popup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=21]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Haircut1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[sub_resource type="Animation" id=22]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Haircut1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Haircut1:hframes")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 2 ]
+}
+
+[sub_resource type="Animation" id=23]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Haircut1:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 1 ]
+}
+
+[node name="Node2D" type="Node2D" groups=["deletable"]]
+script = ExtResource( 2 )
+
+[node name="Haircut1" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+position = Vector2( -33, 67 )
+texture = ExtResource( 1 )
+hframes = 2
+
+[node name="HaircutImage" type="ColorRect" parent="Haircut1"]
+visible = false
+margin_left = -143.0
+margin_top = 28.0
+margin_right = -103.0
+margin_bottom = 68.0
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 71.0
+margin_top = -70.0
+margin_right = 523.0
+margin_bottom = -44.0
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_constants/shadow_offset_x = 1
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 1
+custom_constants/shadow_as_outline = 110
+custom_fonts/font = SubResource( 1 )
+text = "TEST TEXT LONG TEXT TO TEST HERE"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Head Camera" type="Camera2D" parent="."]
+position = Vector2( -14, -98 )
+zoom = Vector2( 0.3, 0.3 )
+
+[node name="Head_items" type="Node2D" parent="."]
+visible = false
+
+[node name="width" type="Line2D" parent="Head_items"]
+position = Vector2( -12, 29 )
+points = PoolVector2Array( -100, -130 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="width label" type="Label" parent="Head_items/width"]
+margin_left = -80.0
+margin_top = -113.0
+margin_right = -40.0
+margin_bottom = -99.0
+custom_fonts/font = SubResource( 7 )
+text = "00"
+
+[node name="height" type="Line2D" parent="Head_items"]
+position = Vector2( -12, 17 )
+points = PoolVector2Array( -100, -130 )
+default_color = Color( 0, 0, 0, 1 )
+
+[node name="height label" type="Label" parent="Head_items/height"]
+margin_left = -120.0
+margin_top = -148.0
+margin_right = -80.0
+margin_bottom = -132.0
+custom_fonts/font = SubResource( 7 )
+text = "00"
+
+[node name="area label" type="Label" parent="Head_items"]
+margin_left = -29.0
+margin_top = -145.0
+margin_right = 11.0
+margin_bottom = -129.0
+custom_fonts/font = SubResource( 6 )
+text = "000"
+
+[node name="Area_name" type="Label" parent="Head_items/area label"]
+margin_left = -45.0
+margin_right = 21.0
+margin_bottom = 16.0
+custom_fonts/font = SubResource( 6 )
+text = "Area:"
+
+[node name="ConfirmAnswer" type="Button" parent="Head_items"]
+margin_left = 47.0
+margin_top = -143.0
+margin_right = 79.0
+margin_bottom = -111.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+
+[node name="mouse_detection" type="Area2D" parent="Head_items"]
+position = Vector2( 0, 9 )
+
+[node name="shape_mouse_detection" type="CollisionShape2D" parent="Head_items/mouse_detection"]
+position = Vector2( -113, -110 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Sprite" type="Sprite" parent="Head_items/mouse_detection"]
+position = Vector2( -113, -110 )
+texture = ExtResource( 4 )
+
+[node name="CongratzEffect" type="Particles2D" parent="Head_items"]
+position = Vector2( -12, -8 )
+rotation = -1.5708
+scale = Vector2( 0.1, 0.1 )
+amount = 500
+lifetime = 3.0
+one_shot = true
+process_material = SubResource( 17 )
+texture = SubResource( 19 )
+
+[node name="Helper" type="Panel" parent="Head_items"]
+visible = false
+margin_left = -62.0
+margin_top = -82.0
+margin_right = 138.0
+margin_bottom = -18.0
+
+[node name="ColorRect" type="ColorRect" parent="Head_items/Helper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Tip1" type="Sprite" parent="Head_items/Helper"]
+position = Vector2( 99, 35 )
+texture = ExtResource( 11 )
+
+[node name="Finished_anim" type="Timer" parent="Head_items"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Popup_message" type="Label" parent="Head_items"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -114.0
+margin_right = 107.0
+margin_bottom = -89.0
+custom_fonts/font = SubResource( 26 )
+text = "EXCELENTE"
+script = ExtResource( 9 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Head_items/Popup_message"]
+anims/RESET = SubResource( 24 )
+anims/popup = SubResource( 25 )
+
+[node name="Robot_animation" type="AnimationPlayer" parent="."]
+autoplay = "Talking"
+anims/Greetings = SubResource( 21 )
+anims/RESET = SubResource( 22 )
+anims/Talking = SubResource( 23 )
+
+[node name="GiveUpCountdown" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="pressed" from="Head_items/ConfirmAnswer" to="." method="_on_ConfirmAnswer_pressed"]
+[connection signal="input_event" from="Head_items/mouse_detection" to="." method="_on_Area2D_input_event"]
+[connection signal="timeout" from="Head_items/Finished_anim" to="." method="_on_Finished_anim_timeout"]
+[connection signal="timeout" from="GiveUpCountdown" to="." method="_on_GiveUpCountdown_timeout"]

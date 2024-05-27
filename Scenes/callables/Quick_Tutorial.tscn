@@ -1,0 +1,162 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/callables/Scripts/Quick_Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://Assets/metric_tape.png" type="Texture" id=2]
+[ext_resource path="res://Assets/background.png" type="Texture" id=3]
+[ext_resource path="res://Assets/shapes/shape_0c.png" type="Texture" id=4]
+[ext_resource path="res://Assets/robot.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Assets/buttons/button1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/buttons/button_hover.png" type="Texture" id=8]
+[ext_resource path="res://Assets/buttons/button_clicked.png" type="Texture" id=9]
+[ext_resource path="res://Assets/robot_with_head.png" type="Texture" id=10]
+[ext_resource path="res://Assets/robot_without_head.png" type="Texture" id=11]
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 6 )
+
+[node name="Quick_Tutorial" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -166.0
+margin_top = -64.0
+margin_right = -38.0
+margin_bottom = -32.0
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "START GAME"
+
+[node name="Background" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 183, 175 )
+scale = Vector2( 0.405, 0.405 )
+texture = ExtResource( 3 )
+
+[node name="Background2" type="Label" parent="CanvasLayer"]
+margin_left = 13.0
+margin_top = 27.0
+margin_right = 386.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+text = "Este é o cenário, que você poderá decorar"
+
+[node name="Robot" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 489, 193 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 10 )
+hframes = 2
+
+[node name="Robot2" type="Label" parent="CanvasLayer"]
+margin_left = 396.0
+margin_top = 58.0
+margin_right = 563.0
+margin_bottom = 101.0
+custom_fonts/font = SubResource( 1 )
+text = "Este é o 
+seu cliente"
+align = 1
+
+[node name="Robot3" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 829, 173 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 10 )
+hframes = 2
+vframes = 3
+
+[node name="Robot4" type="Label" parent="CanvasLayer"]
+margin_left = 659.0
+margin_top = 18.0
+margin_right = 957.0
+margin_bottom = 61.0
+custom_fonts/font = SubResource( 1 )
+text = "Primeiro calcule a 
+area da cabeça"
+align = 1
+
+[node name="MetricTape" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 789, 170 )
+texture = ExtResource( 2 )
+
+[node name="MetricTape2" type="Label" parent="CanvasLayer"]
+margin_left = 633.0
+margin_top = 78.0
+margin_right = 979.0
+margin_bottom = 121.0
+custom_fonts/font = SubResource( 1 )
+text = "Arrastando a fita métrica
+ para calcular"
+align = 1
+
+[node name="MetricTape3" type="Label" parent="CanvasLayer"]
+margin_left = 629.0
+margin_top = 218.0
+margin_right = 975.0
+margin_bottom = 261.0
+custom_fonts/font = SubResource( 1 )
+text = "Um bom cabelereiro precisa 
+conhecer seu cliente"
+align = 1
+
+[node name="Shape1" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 178, 469 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 4 )
+
+[node name="Shape2" type="Label" parent="CanvasLayer"]
+margin_left = -15.0
+margin_top = 355.0
+margin_right = 405.0
+margin_bottom = 398.0
+custom_fonts/font = SubResource( 1 )
+text = "Então, calcule a área do corte"
+align = 1
+
+[node name="Robot5" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 679, 514 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 11 )
+hframes = 2
+
+[node name="Robot7" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 0, 0, 1 )
+position = Vector2( 678, 424 )
+scale = Vector2( 0.44, 0.44 )
+texture = ExtResource( 5 )
+hframes = 4
+vframes = 6
+
+[node name="Robot6" type="Label" parent="CanvasLayer"]
+margin_left = 463.0
+margin_top = 385.0
+margin_right = 895.0
+margin_bottom = 428.0
+custom_fonts/font = SubResource( 1 )
+text = "Por fim, deixe o robô estiloso!"
+align = 1
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
