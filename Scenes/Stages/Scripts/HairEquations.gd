@@ -53,7 +53,7 @@ var texture_3 = preload("res://Assets/shapes/shape_03c.png")
 var texture_3_size_quant : int = 6
 var texture_4 = preload("res://Assets/shapes/shape_04c.png")
 var texture_4_size_quant : int = 6
-var texture_5 = preload("res://Assets/shapes/shape_05_c.png")
+var texture_5 = preload("res://Assets/shapes/shape_05c.png")
 var texture_5_size_quant : int = 7
 
 var texture_list : Array = [texture_0, texture_1, texture_2, texture_3, texture_4, texture_5]
@@ -110,21 +110,21 @@ func _ready():
 
 		1:
 			GameManager.shape_value = 1
-			if ordened_values[4] < ordened_values[2]:
+			if ordened_values[4] <= ordened_values[2]:
 				ordened_values[4] += ordened_values[2]
 				size_5.text = str(ordened_values[4]) + unit_type
 			area_result = floor(((ordened_values[0] * ordened_values[1])/2) + (ordened_values[2] * ordened_values[3]) + ((ordened_values[4] - ordened_values[2]) * ordened_values[5]))
 
 		2:
 			GameManager.shape_value = 2
-			if ordened_values[2] < ordened_values[1]:
+			if ordened_values[2] <= ordened_values[1]:
 				ordened_values[2] += ordened_values[1]
 				size_3.text = str(ordened_values[2]) + unit_type
 			area_result = floor(ordened_values[0] * ordened_values[1] + (((ordened_values[2]-ordened_values[1]) * ordened_values[0])/2))
 
 		3:
 			GameManager.shape_value = 3
-			if ordened_values[5] < (ordened_values[2] + ordened_values[1]):
+			if ordened_values[5] <= (ordened_values[2] + ordened_values[1]):
 				ordened_values[5] += ordened_values[2] + ordened_values[1]
 				size_6.text = str(ordened_values[5]) + unit_type
 			area_result = ordened_values[0] * ordened_values[1] + ordened_values[2] * ordened_values[3] + (ordened_values[5]-ordened_values[1]-ordened_values[2])*ordened_values[3] + ordened_values[4] * (ordened_values[5] - ordened_values[1])
@@ -134,7 +134,7 @@ func _ready():
 			area_result = ordened_values[0] * ordened_values[1] + ordened_values[2] * ordened_values[3] + ordened_values[4] * ordened_values[5]
 
 		5:
-			if ordened_values[5] < ordened_values[6]:
+			if ordened_values[5] <=  ordened_values[6]:
 				ordened_values[5] += ordened_values[6]
 				size_6.text = str(ordened_values[5]) + unit_type
 			GameManager.shape_value = 5

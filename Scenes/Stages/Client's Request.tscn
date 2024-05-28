@@ -60,19 +60,19 @@ texture = ExtResource( 3 )
 
 [node name="Frames" type="Sprite" parent="."]
 visible = false
-position = Vector2( 901, 104 )
+position = Vector2( 264, 146 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 6 )
 
 [node name="Flowers" type="Sprite" parent="."]
 visible = false
-position = Vector2( 677, 34 )
+position = Vector2( 670, 37 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 5 )
 
 [node name="TableDeco" type="Sprite" parent="."]
 visible = false
-position = Vector2( 964, 528 )
+position = Vector2( 802, 421 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 7 )
 

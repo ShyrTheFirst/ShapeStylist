@@ -10,27 +10,27 @@ onready var valor_lucro = $CanvasLayer/Panel/lucro/valor_lucro
 
 onready var button = $CanvasLayer/Panel/Button
 
-onready var actual_money = $CanvasLayer/Panel/Lojinha/Actual_Money
+onready var actual_money = $CanvasLayer/Panel/Actual_Money
 
-onready var buy_deco = $CanvasLayer/Panel/Lojinha/ItemList/BuyDeco
-onready var buy_deco_2 = $CanvasLayer/Panel/Lojinha/ItemList/BuyDeco2
-onready var buy_deco_3 = $CanvasLayer/Panel/Lojinha/ItemList/BuyDeco3
+onready var buy_deco = $CanvasLayer/Panel/BuyDeco
+onready var buy_deco_2 = $CanvasLayer/Panel/BuyDeco2
+onready var buy_deco_3 = $CanvasLayer/Panel/BuyDeco3
 
-onready var flor_cor_1 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/DecoFlores/FlorCor1
-onready var flor_cor_2 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/DecoFlores2/FlorCor2
-onready var flor_cor_3 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/DecoFlores3/FlorCor3
+onready var flor_cor_1 = $CanvasLayer/Panel/GridContainer/DecoFlores/FlorCor1
+onready var flor_cor_2 = $CanvasLayer/Panel/GridContainer/DecoFlores2/FlorCor2
+onready var flor_cor_3 = $CanvasLayer/Panel/GridContainer/DecoFlores3/FlorCor3
 
-onready var quadro_cor_1 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/DecoQuadros/QuadroCor1
-onready var quadro_cor_2 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/DecoQuadros2/QuadroCor2
-onready var quadro_cor_3 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/DecoQuadros3/QuadroCor3
+onready var quadro_cor_1 = $CanvasLayer/Panel/GridContainer/DecoQuadros/QuadroCor1
+onready var quadro_cor_2 = $CanvasLayer/Panel/GridContainer/DecoQuadros2/QuadroCor2
+onready var quadro_cor_3 = $CanvasLayer/Panel/GridContainer/DecoQuadros3/QuadroCor3
 
-onready var md_cor_1 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/MesaDeco/MDCor1
-onready var md_cor_2 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/MesaDeco2/MDCor2
-onready var md_cor_3 = $CanvasLayer/Panel/Lojinha/ItemList/GridContainer/MesaDeco3/MDCor3
+onready var md_cor_1 = $CanvasLayer/Panel/GridContainer/MesaDeco/MDCor1
+onready var md_cor_2 = $CanvasLayer/Panel/GridContainer/MesaDeco2/MDCor2
+onready var md_cor_3 = $CanvasLayer/Panel/GridContainer/MesaDeco3/MDCor3
 
-onready var selected_flor = $CanvasLayer/Panel/Lojinha/ItemList/SelectedFlor
-onready var selected_quadro = $CanvasLayer/Panel/Lojinha/ItemList/SelectedQuadro
-onready var selected_md = $CanvasLayer/Panel/Lojinha/ItemList/SelectedMD
+onready var selected_flor = $CanvasLayer/Panel/SelectedFlor
+onready var selected_quadro = $CanvasLayer/Panel/SelectedQuadro
+onready var selected_md = $CanvasLayer/Panel/SelectedMD
 
 
 

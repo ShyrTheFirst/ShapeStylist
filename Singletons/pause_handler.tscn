@@ -1,6 +1,46 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Singletons/pause_handler.gd" type="Script" id=1]
+[ext_resource path="res://Assets/buttons/pixil-frame-19.png" type="Texture" id=2]
+[ext_resource path="res://Assets/buttons/pixil-frame-17.png" type="Texture" id=3]
+[ext_resource path="res://Assets/buttons/pixil-frame-20.png" type="Texture" id=4]
+[ext_resource path="res://Assets/buttons/pixil-frame-18.png" type="Texture" id=5]
+[ext_resource path="res://Assets/buttons/pixil-frame-24.png" type="Texture" id=6]
+[ext_resource path="res://Assets/buttons/pixil-frame-22.png" type="Texture" id=7]
+[ext_resource path="res://Assets/buttons/pixil-frame-21.png" type="Texture" id=8]
+[ext_resource path="res://Assets/buttons/pixil-frame-23.png" type="Texture" id=9]
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 9 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 64, 64 )
 
 [node name="pause_handler" type="Node2D"]
 pause_mode = 2
@@ -13,24 +53,39 @@ process_priority = 10
 layer = 2
 
 [node name="Button" type="Button" parent="CanvasLayer"]
-margin_left = 69.0
-margin_top = 527.0
-margin_right = 117.0
-margin_bottom = 547.0
+margin_left = 51.0
+margin_top = 503.0
+margin_right = 115.0
+margin_bottom = 567.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 1 )
+custom_styles/disabled = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "Menu"
 
 [node name="Volume" type="Button" parent="CanvasLayer"]
 margin_left = 151.0
-margin_top = 527.0
-margin_right = 212.0
-margin_bottom = 547.0
+margin_top = 506.0
+margin_right = 215.0
+margin_bottom = 570.0
+rect_min_size = Vector2( 64, 64 )
+custom_styles/hover = SubResource( 5 )
+custom_styles/pressed = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
 text = "Sound"
 
-[node name="HSlider" type="HSlider" parent="CanvasLayer/Volume"]
-margin_left = -31.0
-margin_top = 23.0
-margin_right = 98.0
-margin_bottom = 39.0
-min_value = 10.0
-max_value = -80.0
+[node name="HSlider" type="HSlider" parent="CanvasLayer"]
+visible = false
+margin_left = 85.0
+margin_top = 475.0
+margin_right = 279.0
+margin_bottom = 499.0
+min_value = -80.0
+max_value = 10.0
 value = 10.0
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Volume" to="." method="_on_Volume_pressed"]
+[connection signal="value_changed" from="CanvasLayer/HSlider" to="." method="_on_HSlider_value_changed"]
