@@ -71,8 +71,10 @@ func data(num,day):
 
 func _ready():
 	randomize()
-	nome = LanguageSelector.frases["frase_1"] + LanguageSelector.frases["possibilidade_nomes"][round(randi() % LanguageSelector.frases["possibilidade_nomes"].size())]
-	gosto = LanguageSelector.frases["frase_2"] + LanguageSelector.frases["possibilidade_gostos"][round(randi() % LanguageSelector.frases["possibilidade_gostos"].size())]
+	var nome_list = [LanguageSelector.frases["possibilidade_nomes"], LanguageSelector.frases["possibilidade_nomes2"],LanguageSelector.frases["possibilidade_nomes3"],LanguageSelector.frases["possibilidade_nomes4"],LanguageSelector.frases["possibilidade_nomes5"],LanguageSelector.frases["possibilidade_nomes6"],LanguageSelector.frases["possibilidade_nomes7"],LanguageSelector.frases["possibilidade_nomes8"],LanguageSelector.frases["possibilidade_nomes9"],LanguageSelector.frases["possibilidade_nomes10"],LanguageSelector.frases["possibilidade_nomes11"],LanguageSelector.frases["possibilidade_nomes12"]]
+	var gostos_list = [LanguageSelector.frases["possibilidade_gostos"],LanguageSelector.frases["possibilidade_gostos2"],LanguageSelector.frases["possibilidade_gostos3"],LanguageSelector.frases["possibilidade_gostos4"],LanguageSelector.frases["possibilidade_gostos5"]]
+	nome = LanguageSelector.frases["frase_1"] + nome_list[round(randi() % nome_list.size())]
+	gosto = LanguageSelector.frases["frase_2"] + gostos_list[round(randi() % gostos_list.size())]
 	dialogue_list = [nome, gosto, LanguageSelector.frases["frase_3"]] 
 
 	random_choosing = round(randi() % 2)
@@ -123,7 +125,8 @@ func _process(delta):
 
 	if GameManager.last_phrase:
 		label.visible = true
-		label.text = LanguageSelector.frases["ultima_frase"][round(randi() % LanguageSelector.frases["ultima_frase"].size())]
+		var ultima_frase_list = [LanguageSelector.frases["ultima_frase"],LanguageSelector.frases["ultima_frase2"],LanguageSelector.frases["ultima_frase3"],LanguageSelector.frases["ultima_frase4"],LanguageSelector.frases["ultima_frase5"],LanguageSelector.frases["ultima_frase6"]]
+		label.text = ultima_frase_list[round(randi() % ultima_frase_list.size())]
 		GameManager.last_phrase = false
 
 func conversation_time(delta):
