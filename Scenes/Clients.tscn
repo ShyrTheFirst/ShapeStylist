@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://Assets/robot_with_head.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Scripts/Clients.gd" type="Script" id=2]
@@ -44,6 +44,37 @@ region_rect = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 16.6433
+
+[sub_resource type="Shader" id=27]
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform float circle_width: hint_range(0.0, 1.0, 0.05) = 0.15;
+uniform float wait_time: hint_range(0.0, 5.0, 0.1) = 0.5;
+uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
+uniform float alpha_boost: hint_range(1.0, 5.0, 0.1) = 2.0;
+uniform vec4 color_bip : hint_color;
+
+// --- Functions --- //
+void fragment() {
+	float dist = distance(UV, vec2(0.5));
+	float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
+	COLOR = color_bip;
+	COLOR.a *= 1.0 - step(0.5, mod_dist);
+	COLOR.a += step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
+	COLOR.a -= 2.0 * dist;
+	COLOR.a *= alpha_boost;
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=28]
+shader = SubResource( 27 )
+shader_param/circle_width = 0.2
+shader_param/wait_time = 0.1
+shader_param/speed = 1.0
+shader_param/alpha_boost = 3.0
+shader_param/color_bip = Color( 0, 0.294118, 0.392157, 1 )
 
 [sub_resource type="Curve" id=12]
 min_value = -360.0
@@ -104,7 +135,7 @@ width = 50
 [sub_resource type="DynamicFont" id=26]
 size = 25
 outline_size = 5
-outline_color = Color( 0.109804, 0.388235, 0.00784314, 1 )
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
 extra_spacing_char = 15
 font_data = ExtResource( 3 )
 
@@ -319,6 +350,12 @@ position = Vector2( 0, 9 )
 position = Vector2( -113, -110 )
 shape = SubResource( 2 )
 disabled = true
+
+[node name="Sprite2" type="Sprite" parent="Head_items/mouse_detection"]
+material = SubResource( 28 )
+position = Vector2( -112, -111 )
+scale = Vector2( 1.29167, 1.29167 )
+texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="Head_items/mouse_detection"]
 position = Vector2( -113, -110 )

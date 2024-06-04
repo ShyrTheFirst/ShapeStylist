@@ -119,7 +119,7 @@ width = 50
 [sub_resource type="DynamicFont" id=26]
 size = 50
 outline_size = 5
-outline_color = Color( 0, 0.411765, 0.141176, 1 )
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
 extra_spacing_char = 50
 font_data = ExtResource( 10 )
 

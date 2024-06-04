@@ -62,7 +62,6 @@ custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 1 )
 custom_styles/disabled = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
-text = "Menu"
 
 [node name="Volume" type="Button" parent="CanvasLayer"]
 margin_left = 151.0
@@ -74,7 +73,6 @@ custom_styles/hover = SubResource( 5 )
 custom_styles/pressed = SubResource( 6 )
 custom_styles/disabled = SubResource( 7 )
 custom_styles/normal = SubResource( 8 )
-text = "Sound"
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer"]
 visible = false
