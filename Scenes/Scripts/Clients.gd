@@ -39,6 +39,8 @@ var sad_synth = preload("res://Assets/Music and SFX/Sad synth.wav")
 var head_robot = preload("res://Assets/robot_with_head.png")
 var headless_robot = preload("res://Assets/robot_without_head.png")
 
+var head_calculation_stage = preload("res://Scenes/Stages/HeadCalculation.tscn")
+
 func spawn_sfx(audio):
 	var create = sfx.instance()
 	create.sfx_to_play = audio
@@ -125,10 +127,9 @@ func conversation_time(delta):
 				next_stage = true
 
 func head_calculate(delta):
-	pass #criar aqui o chamado pra HeadCalculation
-	#ao fim, preciso chamar da seguinte forma:
-	#last_stage = true
-	#next_stage = false
+	var calculate = head_calculation_stage.instance()
+	add_child(calculate)
+	next_stage = false
 
 func calculate_the_area():
 	var hair_cut = hair_equation.instance()
