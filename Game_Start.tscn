@@ -66,10 +66,10 @@ texture = ExtResource( 3 )
 [node name="GameName2" type="Label" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -254.0
-margin_top = 154.0
-margin_right = 186.0
-margin_bottom = 234.0
+margin_left = -185.0
+margin_top = 206.0
+margin_right = 255.0
+margin_bottom = 286.0
 custom_fonts/font = SubResource( 1 )
 text = "ShapeStylist"
 
@@ -77,10 +77,10 @@ text = "ShapeStylist"
 material = SubResource( 3 )
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -254.0
-margin_top = 154.0
-margin_right = 186.0
-margin_bottom = 234.0
+margin_left = -185.0
+margin_top = 206.0
+margin_right = 255.0
+margin_bottom = 286.0
 custom_fonts/font = SubResource( 1 )
 text = "ShapeStylist"
 

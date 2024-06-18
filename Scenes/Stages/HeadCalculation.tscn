@@ -50,14 +50,14 @@ z_index = -2
 texture = ExtResource( 1 )
 
 [node name="RobotWithHead" type="Sprite" parent="."]
-position = Vector2( 609, 1634 )
-scale = Vector2( 7.26375, 7.26375 )
+position = Vector2( 603, 1784 )
+scale = Vector2( 8.22188, 8.22188 )
 z_index = -1
 texture = ExtResource( 2 )
 hframes = 2
 
 [node name="mouse_detection" type="Area2D" parent="."]
-position = Vector2( 70, 381 )
+position = Vector2( 123, 438 )
 scale = Vector2( 4, 4 )
 
 [node name="shape_mouse_detection" type="CollisionShape2D" parent="mouse_detection"]
@@ -72,3 +72,6 @@ texture = ExtResource( 4 )
 
 [node name="Sprite" type="Sprite" parent="mouse_detection"]
 texture = ExtResource( 4 )
+
+[connection signal="mouse_entered" from="mouse_detection" to="." method="_on_mouse_detection_mouse_entered"]
+[connection signal="mouse_exited" from="mouse_detection" to="." method="_on_mouse_detection_mouse_exited"]

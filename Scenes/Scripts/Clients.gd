@@ -89,7 +89,7 @@ func _process(delta):
 			conversation_time(delta)
 
 	if next_stage :
-		head_calculate(delta)
+		head_calculate()
 
 	if last_stage:
 		haircut_image.visible = false
@@ -126,7 +126,7 @@ func conversation_time(delta):
 				start_conversation = false
 				next_stage = true
 
-func head_calculate(delta):
+func head_calculate():
 	var calculate = head_calculation_stage.instance()
 	add_child(calculate)
 	next_stage = false

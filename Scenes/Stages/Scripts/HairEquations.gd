@@ -20,27 +20,7 @@ onready var wrong_unit = $Result/unit_answer/WrongUnit
 var unit_type : String = "cm"
 onready var result = $Result
 
-onready var size_1 = $SizeContainer/Size1
-onready var size_2 = $SizeContainer/Size2
-onready var size_3 = $SizeContainer/Size3
-onready var size_4 = $SizeContainer/Size4
-onready var size_5 = $SizeContainer/Size5
-onready var size_6 = $SizeContainer/Size6
-onready var size_7 = $SizeContainer/Size7
-onready var size_8 = $SizeContainer/Size8
-onready var size_9 = $SizeContainer/Size9
-onready var size_10 = $SizeContainer/Size10
-
-onready var side_1 = $SidesContainer/side1
-onready var side_2 = $SidesContainer/side2
-onready var side_3 = $SidesContainer/side3
-onready var side_4 = $SidesContainer/side4
-onready var side_5 = $SidesContainer/side5
-onready var side_6 = $SidesContainer/side6
-onready var side_7 = $SidesContainer/side7
-onready var side_8 = $SidesContainer/side8
-onready var side_9 = $SidesContainer/side9
-onready var side_10 = $SidesContainer/side10
+var toggle_helper : bool = true
 
 
 var texture_0 = preload("res://Assets/shapes/shape_0c.png")
@@ -74,16 +54,6 @@ func data(day, num):
 func _ready():
 	randomize()
 	result.text = LanguageSelector.frases["texto_resultado"]
-	side_1.text = LanguageSelector.frases["label_lados"] + "1"
-	side_2.text = LanguageSelector.frases["label_lados"] + "2"
-	side_3.text = LanguageSelector.frases["label_lados"] + "3"
-	side_4.text = LanguageSelector.frases["label_lados"] + "4"
-	side_5.text = LanguageSelector.frases["label_lados"] + "5"
-	side_6.text = LanguageSelector.frases["label_lados"] + "6"
-	side_7.text = LanguageSelector.frases["label_lados"] + "7"
-	side_8.text = LanguageSelector.frases["label_lados"] + "8"
-	side_9.text = LanguageSelector.frases["label_lados"] + "9"
-	side_10.text = LanguageSelector.frases["label_lados"] + "10"
 	result_answer.placeholder_text = LanguageSelector.frases["placeholder_resposta"]
 	unit_answer.placeholder_text = LanguageSelector.frases["placeholder_unidade"]
 
@@ -95,51 +65,32 @@ func _ready():
 
 	var pick_random_texture = int(rand_range(0,(texture_list.size()-1)))
 	sprite.texture = texture_list[pick_random_texture]
-
-	for n in range(size_quant_list[pick_random_texture]):
-		size_container.get_children()[n].visible = true
-		var new_value = randi() % 10+1
-		ordened_values.append(new_value)
-		size_container.get_children()[n].text = str(new_value) + unit_type
-		sides_container.get_children()[n].visible = true
 	
 	match pick_random_texture:
 		0:
 			GameManager.shape_value = 0
-			area_result = ordened_values[0] * ordened_values[1]
+			area_result #calcular a area conforme a figura
+			#Adicionar os valores no local correto e a quantidade correta -> uma scene pra ser instanciada aqui?
 
 		1:
 			GameManager.shape_value = 1
-			if ordened_values[4] <= ordened_values[2]:
-				ordened_values[4] += ordened_values[2]
-				size_5.text = str(ordened_values[4]) + unit_type
-			area_result = floor(((ordened_values[0] * ordened_values[1])/2) + (ordened_values[2] * ordened_values[3]) + ((ordened_values[4] - ordened_values[2]) * ordened_values[5]))
+			area_result 
 
 		2:
 			GameManager.shape_value = 2
-			if ordened_values[2] <= ordened_values[1]:
-				ordened_values[2] += ordened_values[1]
-				size_3.text = str(ordened_values[2]) + unit_type
-			area_result = floor(ordened_values[0] * ordened_values[1] + (((ordened_values[2]-ordened_values[1]) * ordened_values[0])/2))
+			area_result
 
 		3:
 			GameManager.shape_value = 3
-			if ordened_values[5] <= (ordened_values[2] + ordened_values[1]):
-				ordened_values[5] += ordened_values[2] + ordened_values[1]
-				size_6.text = str(ordened_values[5]) + unit_type
-			area_result = ordened_values[0] * ordened_values[1] + ordened_values[2] * ordened_values[3] + (ordened_values[5]-ordened_values[1]-ordened_values[2])*ordened_values[3] + ordened_values[4] * (ordened_values[5] - ordened_values[1])
+			area_result 
 
 		4:
 			GameManager.shape_value = 4
-			area_result = ordened_values[0] * ordened_values[1] + ordened_values[2] * ordened_values[3] + ordened_values[4] * ordened_values[5]
+			area_result
 
 		5:
-			if ordened_values[5] <=  ordened_values[6]:
-				ordened_values[5] += ordened_values[6]
-				size_6.text = str(ordened_values[5]) + unit_type
 			GameManager.shape_value = 5
-			area_result = ordened_values[0] * ordened_values[1] + ordened_values[2]* ordened_values[1] + ordened_values[3] * ordened_values[4] + (ordened_values[0]+ordened_values[2]+ordened_values[3]) * ordened_values[6] + (ordened_values[5] - ordened_values[6]) *ordened_values[3]
-
+			area_result 
 
 func _process(delta):
 	if rect_scale <= Vector2(1,1):
@@ -168,9 +119,11 @@ func _on_Check_Amswer_pressed():
 
 		elif int(result_answer.text) != int(area_result) and unit_answer.text == player_chose_unit:
 			wrong_result.visible = true
+			wrong_unit.visible = false
 
 		elif unit_answer.text != player_chose_unit and int(result_answer.text) == int(area_result):
 			wrong_unit.visible = true
+			wrong_result.visible = false
 
 func _on_cm_pressed():
 	player_chose_unit = "cm"
@@ -221,3 +174,11 @@ func _on_backspace_pressed():
 func _on_FinalTimer_timeout():
 	GameManager.final_touch = true
 	queue_free()
+
+func _on_Help_pressed():
+	if toggle_helper:
+		helper.visible = true
+		toggle_helper = false
+	else:
+		helper.visible = false
+		toggle_helper = true
