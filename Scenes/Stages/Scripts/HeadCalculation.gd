@@ -10,13 +10,19 @@ var vectors5 : PoolVector2Array
 var canClick : bool = false
 var clicked : bool = false
 
+var moving_right : bool = false
+var moving_left : bool = false
+onready var right = $mouse_detection/Right
+onready var left = $mouse_detection/Left
+
+
  #####When we can cut the robot's head, GameManager.can_change_robot = true
 func _ready():
-	vectors1 = [Vector2(150,255), Vector2(847,384), Vector2(847,255)]
-	vectors2 = [Vector2(150,255), Vector2(847,384), Vector2(150,390)]
-	vectors3 = [Vector2(847,255), Vector2(596,146), Vector2(596,255)]
-	vectors4 = [Vector2(150,145), Vector2(596,255), Vector2(596,146)]
-	vectors5 = [Vector2(150,145), Vector2(596,255), Vector2(150,255)]
+	vectors1 = [Vector2(150,245), Vector2(847,390), Vector2(847,245)]
+	vectors2 = [Vector2(150,245), Vector2(847,390), Vector2(150,390)]
+	vectors3 = [Vector2(847,245), Vector2(596,146), Vector2(596,245)]
+	vectors4 = [Vector2(150,145), Vector2(596,245), Vector2(596,146)]
+	vectors5 = [Vector2(150,145), Vector2(596,245), Vector2(150,245)]
 
 func _draw():
 	var color1 = Color(0.2,0.6,0.6,0.5)
@@ -31,6 +37,14 @@ func _draw():
 func _process(delta):
 	if canClick or clicked:
 		pass
+	
+	if Input.is_action_just_pressed("MouseClick"):
+		if canClick:
+			clicked = true
+			print("Click") #start dragging the line
+	
+	if Input.is_action_just_released("MouseClick"):
+		clicked = false
 
 func _calculate_area():
 	pass
@@ -44,3 +58,18 @@ func _on_mouse_detection_mouse_entered():
 
 func _on_mouse_detection_mouse_exited():
 	canClick = false
+	if !clicked:
+		moving_right = false
+		moving_left = false
+
+
+func _on_Right_click_detection_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		moving_right = true
+		moving_left = false
+
+
+func _on_Left_click_detection_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		moving_right = false
+		moving_left = true
