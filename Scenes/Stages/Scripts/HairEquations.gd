@@ -91,12 +91,12 @@ func _ready():
 		0:
 			GameManager.shape_value = 0
 			side_size.visible = true
-			side_size.position = Vector2(-171,-32)
-			side_size.text = 4 * random_value
+			side_size.rect_position = Vector2(-171,-32)
+			side_size.text = str(4 * random_value) + unit_type
 
 			side_size_2.visible = true
-			side_size_2.position = Vector2(-32, -192)
-			side_size_2.text = 4 * random_value 
+			side_size_2.rect_position = Vector2(-32, -192)
+			side_size_2.text = str(4 * random_value) + unit_type
 
 			area_result = (4* random_value) * (4* random_value)
 
