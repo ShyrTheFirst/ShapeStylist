@@ -1,0 +1,420 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Stages/Scripts/End Of The Day.gd" type="Script" id=2]
+[ext_resource path="res://Assets/buttons/button1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/buttons/button_hover.png" type="Texture" id=4]
+[ext_resource path="res://Assets/buttons/button_clicked.png" type="Texture" id=5]
+[ext_resource path="res://Assets/buttons/Coin.png" type="Texture" id=6]
+[ext_resource path="res://Assets/deco/flower1.png" type="Texture" id=7]
+[ext_resource path="res://Assets/deco/flower3.png" type="Texture" id=8]
+[ext_resource path="res://Assets/deco/frame2.png" type="Texture" id=9]
+[ext_resource path="res://Assets/deco/tabledeco2.png" type="Texture" id=10]
+[ext_resource path="res://Assets/deco/flower2.png" type="Texture" id=11]
+[ext_resource path="res://Assets/deco/frame3.png" type="Texture" id=12]
+[ext_resource path="res://Assets/deco/frame1.png" type="Texture" id=13]
+[ext_resource path="res://Assets/deco/tabledeco1.png" type="Texture" id=14]
+[ext_resource path="res://Assets/deco/tabledeco3.png" type="Texture" id=15]
+[ext_resource path="res://Assets/background_2.png" type="Texture" id=16]
+[ext_resource path="res://Assets/background.png" type="Texture" id=17]
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 128, 32 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 50
+outline_size = 2
+outline_color = Color( 1, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 50
+outline_size = 2
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0.294118, 0.392157, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 64
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 64
+font_data = ExtResource( 1 )
+
+[node name="End Of The Day" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Background" type="Sprite" parent="CanvasLayer/Panel"]
+position = Vector2( 210, -428 )
+scale = Vector2( 2.89546, 3.6072 )
+texture = ExtResource( 17 )
+
+[node name="Background2" type="Sprite" parent="CanvasLayer/Panel"]
+visible = false
+position = Vector2( 509, 291 )
+scale = Vector2( 1.017, 1.017 )
+texture = ExtResource( 16 )
+
+[node name="Button" type="Button" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -41.0
+margin_top = -53.0
+margin_right = 87.0
+margin_bottom = -21.0
+custom_styles/hover = SubResource( 8 )
+custom_styles/pressed = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
+text = "NEXT PHASE"
+
+[node name="dinheiro_ganho" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 14.0
+margin_top = 114.0
+margin_right = 394.0
+margin_bottom = 165.0
+custom_fonts/font = SubResource( 1 )
+text = "Earned money"
+
+[node name="valor_ganho" type="Label" parent="CanvasLayer/Panel/dinheiro_ganho"]
+margin_left = 116.0
+margin_top = 51.0
+margin_right = 197.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 2 )
+text = "80"
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Panel/dinheiro_ganho"]
+position = Vector2( 194, 75 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="valor_gasto" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 14.0
+margin_top = 230.0
+margin_right = 407.0
+margin_bottom = 281.0
+custom_fonts/font = SubResource( 3 )
+text = "Saloon expenses"
+
+[node name="quant_valor_gasto" type="Label" parent="CanvasLayer/Panel/valor_gasto"]
+margin_left = 116.0
+margin_top = 51.0
+margin_right = 197.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 4 )
+text = "20"
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Panel/valor_gasto"]
+position = Vector2( 194, 75 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="lucro" type="Label" parent="CanvasLayer/Panel"]
+margin_left = 14.0
+margin_top = 346.0
+margin_right = 315.0
+margin_bottom = 397.0
+custom_fonts/font = SubResource( 5 )
+text = "Lucro:"
+
+[node name="valor_lucro" type="Label" parent="CanvasLayer/Panel/lucro"]
+margin_left = 116.0
+margin_top = 51.0
+margin_right = 166.0
+margin_bottom = 102.0
+custom_fonts/font = SubResource( 6 )
+text = "0"
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Panel/lucro"]
+position = Vector2( 211, 74 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="Actual_Money" type="Label" parent="CanvasLayer/Panel"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 269.0
+margin_top = 17.0
+margin_right = 321.0
+margin_bottom = 49.0
+custom_fonts/font = SubResource( 11 )
+text = "0"
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer/Panel/Actual_Money"]
+position = Vector2( -17.5, 12 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 6 )
+
+[node name="SelectedFlor" type="ColorRect" parent="CanvasLayer/Panel"]
+margin_left = 596.0
+margin_top = 116.0
+margin_right = 656.0
+margin_bottom = 176.0
+color = Color( 1, 1, 0, 1 )
+
+[node name="SelectedQuadro" type="ColorRect" parent="CanvasLayer/Panel"]
+margin_left = 596.0
+margin_top = 267.0
+margin_right = 656.0
+margin_bottom = 327.0
+color = Color( 1, 1, 0, 1 )
+
+[node name="SelectedMD" type="ColorRect" parent="CanvasLayer/Panel"]
+margin_left = 596.0
+margin_top = 416.0
+margin_right = 656.0
+margin_bottom = 476.0
+color = Color( 1, 1, 0, 1 )
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Panel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 601.0
+margin_top = 122.0
+margin_right = 601.0
+margin_bottom = 893.0
+custom_constants/vseparation = 100
+custom_constants/hseparation = 100
+columns = 3
+
+[node name="DecoFlores" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="FlorCor1" type="Button" parent="CanvasLayer/Panel/GridContainer/DecoFlores"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/DecoFlores"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 7 )
+
+[node name="DecoFlores2" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_left = 150.0
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="FlorCor2" type="Button" parent="CanvasLayer/Panel/GridContainer/DecoFlores2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/DecoFlores2"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 11 )
+
+[node name="DecoFlores3" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_left = 300.0
+margin_right = 350.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="FlorCor3" type="Button" parent="CanvasLayer/Panel/GridContainer/DecoFlores3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/DecoFlores3"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 8 )
+
+[node name="DecoQuadros" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_top = 150.0
+margin_right = 50.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="QuadroCor1" type="Button" parent="CanvasLayer/Panel/GridContainer/DecoQuadros"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/DecoQuadros"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 13 )
+
+[node name="DecoQuadros2" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_left = 150.0
+margin_top = 150.0
+margin_right = 200.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="QuadroCor2" type="Button" parent="CanvasLayer/Panel/GridContainer/DecoQuadros2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/DecoQuadros2"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 9 )
+
+[node name="DecoQuadros3" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_left = 300.0
+margin_top = 150.0
+margin_right = 350.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="QuadroCor3" type="Button" parent="CanvasLayer/Panel/GridContainer/DecoQuadros3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/DecoQuadros3"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 12 )
+
+[node name="MesaDeco" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_top = 300.0
+margin_right = 50.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="MDCor1" type="Button" parent="CanvasLayer/Panel/GridContainer/MesaDeco"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/MesaDeco"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 14 )
+
+[node name="MesaDeco2" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_left = 150.0
+margin_top = 300.0
+margin_right = 200.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="MDCor2" type="Button" parent="CanvasLayer/Panel/GridContainer/MesaDeco2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/MesaDeco2"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 10 )
+
+[node name="MesaDeco3" type="Panel" parent="CanvasLayer/Panel/GridContainer"]
+margin_left = 300.0
+margin_top = 300.0
+margin_right = 350.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 50, 50 )
+
+[node name="MDCor3" type="Button" parent="CanvasLayer/Panel/GridContainer/MesaDeco3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+toggle_mode = true
+
+[node name="Sprite4" type="Sprite" parent="CanvasLayer/Panel/GridContainer/MesaDeco3"]
+position = Vector2( 25, 27 )
+scale = Vector2( 1.5, 1.5 )
+texture = ExtResource( 15 )
+
+[node name="BuyDeco" type="Button" parent="CanvasLayer/Panel"]
+margin_left = 746.0
+margin_top = 195.0
+margin_right = 856.0
+margin_bottom = 265.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 12 )
+text = "2"
+icon = ExtResource( 6 )
+
+[node name="BuyDeco2" type="Button" parent="CanvasLayer/Panel"]
+margin_left = 746.0
+margin_top = 346.0
+margin_right = 856.0
+margin_bottom = 416.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 13 )
+text = "3"
+icon = ExtResource( 6 )
+
+[node name="BuyDeco3" type="Button" parent="CanvasLayer/Panel"]
+margin_left = 734.0
+margin_top = 485.0
+margin_right = 884.0
+margin_bottom = 555.0
+rect_scale = Vector2( 0.5, 0.5 )
+custom_fonts/font = SubResource( 14 )
+text = "10"
+icon = ExtResource( 6 )
+
+[connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoFlores/FlorCor1" to="." method="_on_FlorCor1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoFlores2/FlorCor2" to="." method="_on_FlorCor2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoFlores3/FlorCor3" to="." method="_on_FlorCor3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoQuadros/QuadroCor1" to="." method="_on_QuadroCor1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoQuadros2/QuadroCor2" to="." method="_on_QuadroCor2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoQuadros3/QuadroCor3" to="." method="_on_QuadroCor3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/MesaDeco/MDCor1" to="." method="_on_MDCor1_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/MesaDeco2/MDCor2" to="." method="_on_MDCor2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/GridContainer/MesaDeco3/MDCor3" to="." method="_on_MDCor3_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BuyDeco" to="." method="_on_BuyDeco_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BuyDeco2" to="." method="_on_BuyDeco2_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel/BuyDeco3" to="." method="_on_BuyDeco3_pressed"]

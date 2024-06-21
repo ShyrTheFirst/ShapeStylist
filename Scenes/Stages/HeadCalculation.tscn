@@ -1,0 +1,749 @@
+[gd_scene load_steps=44 format=2]
+
+[ext_resource path="res://Assets/background.png" type="Texture" id=1]
+[ext_resource path="res://Assets/robot_with_head.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/Stages/Scripts/HeadCalculation.gd" type="Script" id=3]
+[ext_resource path="res://Assets/metric_tape.png" type="Texture" id=4]
+[ext_resource path="res://Assets/pngtree-geometric-colored-grid-paper-for-varied-uses-sheet-illustration-technical-photo-image_35432104.jpg" type="Texture" id=5]
+[ext_resource path="res://Assets/shaders/bright_shader.gdshader" type="Shader" id=6]
+[ext_resource path="res://Scenes/Stages/Scripts/Right.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/Stages/Scripts/Left.gd" type="Script" id=8]
+[ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Assets/tip1.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/callables/Scripts/Popup_message.gd" type="Script" id=11]
+
+[sub_resource type="CircleShape2D" id=28]
+radius = 15.252
+
+[sub_resource type="DynamicFont" id=33]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=34]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="Shader" id=27]
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform float circle_width: hint_range(0.0, 1.0, 0.05) = 0.15;
+uniform float wait_time: hint_range(0.0, 5.0, 0.1) = 0.5;
+uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
+uniform float alpha_boost: hint_range(1.0, 5.0, 0.1) = 2.0;
+uniform vec4 color_bip : hint_color;
+
+// --- Functions --- //
+void fragment() {
+	float dist = distance(UV, vec2(0.5));
+	float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
+	COLOR = color_bip;
+	COLOR.a *= 1.0 - step(0.5, mod_dist);
+	COLOR.a += step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
+	COLOR.a -= 2.0 * dist;
+	COLOR.a *= alpha_boost;
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=29]
+shader = SubResource( 27 )
+shader_param/circle_width = 0.2
+shader_param/wait_time = 0.1
+shader_param/speed = 1.0
+shader_param/alpha_boost = 3.0
+shader_param/color_bip = Color( 0, 0.717647, 0.811765, 1 )
+
+[sub_resource type="ShaderMaterial" id=31]
+shader = ExtResource( 6 )
+shader_param/shine_color = Color( 1, 1, 1, 1 )
+shader_param/line_width = 0.1
+shader_param/angle = 0.785398
+shader_param/speed = 0.5
+shader_param/wait_cycles = 0.2
+
+[sub_resource type="Curve" id=30]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="ShaderMaterial" id=32]
+shader = ExtResource( 6 )
+shader_param/shine_color = Color( 1, 1, 1, 1 )
+shader_param/line_width = 0.1
+shader_param/angle = 0.785398
+shader_param/speed = 0.5
+shader_param/wait_cycles = 0.2
+
+[sub_resource type="DynamicFont" id=35]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=40]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=57]
+bg_color = Color( 0, 0.282353, 0.772549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=41]
+bg_color = Color( 1, 0, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=58]
+bg_color = Color( 0, 0.270588, 0.682353, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="DynamicFont" id=36]
+size = 20
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 0, 0.270588, 0.682353, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="DynamicFont" id=37]
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=38]
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=39]
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=48]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0.733333, 0.733333, 0.733333, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="DynamicFont" id=42]
+size = 32
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=47]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="DynamicFont" id=26]
+size = 25
+outline_size = 5
+outline_color = Color( 0.109804, 0.388235, 0.00784314, 1 )
+extra_spacing_char = 15
+font_data = ExtResource( 9 )
+
+[sub_resource type="Animation" id=24]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "popup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2.5, 2.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 2.5, 2.5 ), Vector2( 2, 2 ) ]
+}
+
+[node name="HeadCalculation" type="Node2D"]
+position = Vector2( 0, 7 )
+z_index = 5
+script = ExtResource( 3 )
+
+[node name="Background" type="Sprite" parent="."]
+position = Vector2( 652, 1135 )
+scale = Vector2( 4.9325, 4.9325 )
+z_index = -3
+texture = ExtResource( 1 )
+
+[node name="RobotWithHead" type="Sprite" parent="."]
+position = Vector2( 603, 1784 )
+scale = Vector2( 8.22188, 8.22188 )
+z_index = -2
+texture = ExtResource( 2 )
+hframes = 2
+
+[node name="Pngtree-geometric-colored-grid-paper-for-varied-uses-sheet-illustration-technical-photo-image35432104" type="Sprite" parent="."]
+modulate = Color( 1, 1, 1, 0.607843 )
+position = Vector2( 499.094, 439.594 )
+scale = Vector2( 2.21059, 2.18108 )
+z_index = -1
+texture = ExtResource( 5 )
+
+[node name="mouse_detection" type="Area2D" parent="."]
+position = Vector2( 123, 438 )
+scale = Vector2( 4, 4 )
+priority = 1.0
+
+[node name="shape_mouse_detection" type="CollisionShape2D" parent="mouse_detection"]
+position = Vector2( 1.25, -1 )
+shape = SubResource( 28 )
+
+[node name="Left_Line" type="Line2D" parent="mouse_detection"]
+points = PoolVector2Array( 0, 0, 0, -12 )
+default_color = Color( 0, 0.403922, 0.72549, 1 )
+
+[node name="left_value" type="Label" parent="mouse_detection/Left_Line"]
+margin_left = -27.0
+margin_top = -50.25
+margin_right = 13.0
+margin_bottom = -36.25
+custom_fonts/font = SubResource( 33 )
+text = "99"
+
+[node name="Right_Line" type="Line2D" parent="mouse_detection"]
+points = PoolVector2Array( 0, 0, 11.5, 0 )
+default_color = Color( 0, 0.403922, 0.72549, 1 )
+
+[node name="right_value" type="Label" parent="mouse_detection/Right_Line"]
+margin_left = 63.0
+margin_top = 11.0
+margin_right = 103.0
+margin_bottom = 27.0
+custom_fonts/font = SubResource( 34 )
+text = "99"
+
+[node name="Sprite2" type="Sprite" parent="mouse_detection"]
+material = SubResource( 29 )
+position = Vector2( 1.25, -0.999996 )
+scale = Vector2( 1.66667, 1.66667 )
+texture = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="mouse_detection"]
+texture = ExtResource( 4 )
+
+[node name="Right" type="Line2D" parent="mouse_detection"]
+material = SubResource( 31 )
+points = PoolVector2Array( 18.75, -0.25, 2.75, -0.25 )
+width_curve = SubResource( 30 )
+default_color = Color( 0, 0.109804, 1, 1 )
+script = ExtResource( 7 )
+
+[node name="Left" type="Line2D" parent="mouse_detection"]
+material = SubResource( 32 )
+rotation = -1.57079
+points = PoolVector2Array( 18.75, -0.25, 2.75, -0.25 )
+width_curve = SubResource( 30 )
+default_color = Color( 0, 0.109804, 1, 1 )
+script = ExtResource( 8 )
+
+[node name="Right_click_detection" type="Area2D" parent="mouse_detection"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="mouse_detection/Right_click_detection"]
+polygon = PoolVector2Array( 4, -4.75, 4.25, 4.25, 18.5, -0.25 )
+
+[node name="Left_click_detection" type="Area2D" parent="mouse_detection"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="mouse_detection/Left_click_detection"]
+polygon = PoolVector2Array( 4, -5, -4.5, -5, -0.25, -18.75 )
+
+[node name="Answer_text" type="Label" parent="."]
+margin_left = 323.0
+margin_top = 51.0
+margin_right = 517.0
+margin_bottom = 83.0
+custom_fonts/font = SubResource( 35 )
+text = "AREA TOTAL:"
+
+[node name="result_answer" type="LineEdit" parent="Answer_text"]
+margin_left = 57.0
+margin_top = 40.0
+margin_right = 170.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 40 )
+custom_styles/normal = SubResource( 57 )
+align = 1
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+placeholder_text = "answer here"
+placeholder_alpha = 0.5
+
+[node name="WrongResult" type="Panel" parent="Answer_text/result_answer"]
+visible = false
+show_behind_parent = true
+margin_left = -2.0
+margin_top = -3.0
+margin_right = 116.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 41 )
+
+[node name="unit_answer" type="LineEdit" parent="Answer_text"]
+margin_left = 187.0
+margin_top = 40.0
+margin_right = 280.0
+margin_bottom = 78.0
+custom_fonts/font = SubResource( 40 )
+custom_styles/normal = SubResource( 58 )
+align = 1
+context_menu_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+placeholder_text = "Select unit"
+placeholder_alpha = 0.5
+
+[node name="WrongUnit" type="Panel" parent="Answer_text/unit_answer"]
+visible = false
+show_behind_parent = true
+margin_left = -3.0
+margin_top = -3.0
+margin_right = 95.0
+margin_bottom = 40.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 41 )
+
+[node name="Numbers" type="GridContainer" parent="."]
+margin_left = 747.0
+margin_top = 48.0
+margin_right = 1013.0
+margin_bottom = 152.0
+columns = 5
+
+[node name="1" type="Button" parent="Numbers"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "1"
+
+[node name="2" type="Button" parent="Numbers"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "2"
+
+[node name="3" type="Button" parent="Numbers"]
+margin_left = 108.0
+margin_right = 158.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "3"
+
+[node name="4" type="Button" parent="Numbers"]
+margin_left = 162.0
+margin_right = 212.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "4"
+
+[node name="5" type="Button" parent="Numbers"]
+margin_left = 216.0
+margin_right = 266.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "5"
+
+[node name="6" type="Button" parent="Numbers"]
+margin_top = 54.0
+margin_right = 50.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "6"
+
+[node name="7" type="Button" parent="Numbers"]
+margin_left = 54.0
+margin_top = 54.0
+margin_right = 104.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "7"
+
+[node name="8" type="Button" parent="Numbers"]
+margin_left = 108.0
+margin_top = 54.0
+margin_right = 158.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "8"
+
+[node name="9" type="Button" parent="Numbers"]
+margin_left = 162.0
+margin_top = 54.0
+margin_right = 212.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "9"
+
+[node name="0" type="Button" parent="Numbers"]
+margin_left = 216.0
+margin_top = 54.0
+margin_right = 266.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 36 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "0"
+
+[node name="Units" type="GridContainer" parent="."]
+margin_left = 908.0
+margin_top = 218.0
+margin_right = 1012.0
+margin_bottom = 322.0
+columns = 2
+
+[node name="cm" type="Button" parent="Units"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 37 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "cm²"
+
+[node name="inch" type="Button" parent="Units"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 38 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "in²"
+
+[node name="Others" type="GridContainer" parent="."]
+margin_left = 908.0
+margin_top = 161.0
+margin_right = 1012.0
+margin_bottom = 211.0
+columns = 2
+
+[node name="backspace" type="Button" parent="Others"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 39 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = "<--"
+
+[node name="comma" type="Button" parent="Others"]
+margin_left = 54.0
+margin_right = 104.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+custom_fonts/font = SubResource( 39 )
+custom_styles/hover = SubResource( 54 )
+custom_styles/pressed = SubResource( 55 )
+custom_styles/normal = SubResource( 56 )
+text = ","
+
+[node name="Button" type="Button" parent="."]
+margin_left = 934.0
+margin_top = 298.0
+margin_right = 984.0
+margin_bottom = 348.0
+custom_fonts/font = SubResource( 48 )
+custom_styles/hover = SubResource( 49 )
+custom_styles/pressed = SubResource( 50 )
+custom_styles/disabled = SubResource( 52 )
+custom_styles/normal = SubResource( 51 )
+text = "OK"
+
+[node name="Helper" type="Button" parent="."]
+margin_left = 25.0
+margin_top = 10.0
+margin_right = 75.0
+margin_bottom = 60.0
+custom_fonts/font = SubResource( 42 )
+custom_styles/hover = SubResource( 46 )
+custom_styles/pressed = SubResource( 47 )
+custom_styles/normal = SubResource( 53 )
+text = "?"
+
+[node name="Sprite3" type="Sprite" parent="Helper"]
+visible = false
+material = SubResource( 29 )
+position = Vector2( 9, 12 )
+scale = Vector2( 2.16667, 2.16667 )
+texture = ExtResource( 4 )
+
+[node name="Tip" type="ColorRect" parent="Helper"]
+margin_left = 57.0
+margin_top = 14.0
+margin_right = 556.0
+margin_bottom = 513.0
+
+[node name="Tip1" type="Sprite" parent="Helper/Tip"]
+position = Vector2( 218, 70 )
+scale = Vector2( 2.16667, 2.16667 )
+texture = ExtResource( 10 )
+
+[node name="Label" type="Label" parent="Helper/Tip/Tip1"]
+margin_left = -173.999
+margin_top = 104.769
+margin_right = 257.001
+margin_bottom = 118.769
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_colors/font_outline_modulate = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 1, 0, 0, 1 )
+custom_constants/shadow_offset_x = 0
+custom_constants/line_spacing = 0
+custom_constants/shadow_offset_y = 0
+custom_constants/shadow_as_outline = 0
+text = "COLOCAR AQUI TUTORIAL RAPIDO DE COMO PASSAR DESSA FASE"
+
+[node name="EndStage" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Popup_message" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 314.0
+margin_top = 281.0
+margin_right = 812.0
+margin_bottom = 307.0
+custom_fonts/font = SubResource( 26 )
+text = "EXCELENTE"
+script = ExtResource( 11 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Popup_message"]
+anims/RESET = SubResource( 24 )
+anims/popup = SubResource( 25 )
+
+[connection signal="mouse_entered" from="mouse_detection" to="." method="_on_mouse_detection_mouse_entered"]
+[connection signal="mouse_exited" from="mouse_detection" to="." method="_on_mouse_detection_mouse_exited"]
+[connection signal="input_event" from="mouse_detection/Right_click_detection" to="." method="_on_Right_click_detection_input_event"]
+[connection signal="input_event" from="mouse_detection/Left_click_detection" to="." method="_on_Left_click_detection_input_event"]
+[connection signal="pressed" from="Numbers/1" to="." method="_on_1_pressed"]
+[connection signal="pressed" from="Numbers/2" to="." method="_on_2_pressed"]
+[connection signal="pressed" from="Numbers/3" to="." method="_on_3_pressed"]
+[connection signal="pressed" from="Numbers/4" to="." method="_on_4_pressed"]
+[connection signal="pressed" from="Numbers/5" to="." method="_on_5_pressed"]
+[connection signal="pressed" from="Numbers/6" to="." method="_on_6_pressed"]
+[connection signal="pressed" from="Numbers/7" to="." method="_on_7_pressed"]
+[connection signal="pressed" from="Numbers/8" to="." method="_on_8_pressed"]
+[connection signal="pressed" from="Numbers/9" to="." method="_on_9_pressed"]
+[connection signal="pressed" from="Numbers/0" to="." method="_on_0_pressed"]
+[connection signal="pressed" from="Units/cm" to="." method="_on_cm_pressed"]
+[connection signal="pressed" from="Units/inch" to="." method="_on_inch_pressed"]
+[connection signal="pressed" from="Others/backspace" to="." method="_on_backspace_pressed"]
+[connection signal="pressed" from="Others/comma" to="." method="_on_comma_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Helper" to="." method="_on_Helper_pressed"]
+[connection signal="timeout" from="EndStage" to="." method="_on_EndStage_timeout"]
