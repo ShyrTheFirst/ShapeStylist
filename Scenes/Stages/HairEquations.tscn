@@ -1,11 +1,17 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/tip2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Stages/Scripts/HairEquations.gd" type="Script" id=2]
-[ext_resource path="res://Assets/shapes/shape_0c.png" type="Texture" id=3]
+[ext_resource path="res://Assets/shapes/shape_05c.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Stages/Scripts/HairEquations_node.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/callables/Scripts/Popup_message.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="DynamicFont" id=44]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
@@ -258,6 +264,69 @@ margin_bottom = 576.0
 position = Vector2( 380, 220 )
 scale = Vector2( 0.933333, 0.933333 )
 texture = ExtResource( 3 )
+
+[node name="Side_size" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
+
+[node name="Side_size2" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
+
+[node name="Side_size3" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
+
+[node name="Side_size4" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
+
+[node name="Side_size5" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
+
+[node name="Side_size6" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
+
+[node name="Side_size7" type="Label" parent="HairEquations/Sprite"]
+visible = false
+margin_left = -385.714
+margin_top = -160.714
+margin_right = -345.714
+margin_bottom = -128.714
+custom_fonts/font = SubResource( 44 )
+text = "99"
 
 [node name="Result" type="Label" parent="HairEquations"]
 margin_left = 90.0

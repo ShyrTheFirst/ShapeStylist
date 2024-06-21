@@ -22,6 +22,13 @@ onready var result = $Result
 
 var toggle_helper : bool = true
 
+onready var side_size = $Sprite/Side_size
+onready var side_size_2 = $Sprite/Side_size2
+onready var side_size_3 = $Sprite/Side_size3
+onready var side_size_4 = $Sprite/Side_size4
+onready var side_size_5 = $Sprite/Side_size5
+onready var side_size_6 = $Sprite/Side_size6
+onready var side_size_7 = $Sprite/Side_size7
 
 var texture_0 = preload("res://Assets/shapes/shape_0c.png")
 var texture_0_size_quant : int = 2
@@ -52,7 +59,16 @@ func data(day, num):
 	client_num = num
 
 func _ready():
+	side_size.visible = false
+	side_size_2.visible = false
+	side_size_3.visible = false
+	side_size_4.visible = false
+	side_size_5.visible = false
+	side_size_6.visible = false
+	side_size_7.visible = false
+
 	randomize()
+	
 	result.text = LanguageSelector.frases["texto_resultado"]
 	result_answer.placeholder_text = LanguageSelector.frases["placeholder_resposta"]
 	unit_answer.placeholder_text = LanguageSelector.frases["placeholder_unidade"]
@@ -62,6 +78,9 @@ func _ready():
 		unit_type = "cm"
 	else:
 		unit_type = "in"
+
+	var random_value = randi() % 5
+
 	var pick_random_texture = int(rand_range(0,(texture_list.size()-1)))
 	if GameManager.first_run:
 		pick_random_texture = 0
@@ -71,8 +90,15 @@ func _ready():
 	match pick_random_texture:
 		0:
 			GameManager.shape_value = 0
-			area_result #calcular a area conforme a figura
-			#Adicionar os valores no local correto e a quantidade correta -> uma scene pra ser instanciada aqui?
+			side_size.visible = true
+			side_size.position = Vector2(-171,-32)
+			side_size.text = 4 * random_value
+
+			side_size_2.visible = true
+			side_size_2.position = Vector2(-32, -192)
+			side_size_2.text = 4 * random_value 
+
+			area_result = (4* random_value) * (4* random_value)
 
 		1:
 			GameManager.shape_value = 1
