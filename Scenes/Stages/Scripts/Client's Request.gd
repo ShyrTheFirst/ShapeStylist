@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var coin = $CanvasLayer/Coin
-onready var light_2d = $Light2D
 
 onready var main__camera = $"Main Camera"
 
@@ -41,7 +40,6 @@ func _ready():
 	GameManager.game_running = true
 
 func _process(delta):
-	light_2d.visible = true
 
 	if GameManager.haveDeco1:
 		flowers.visible = true
@@ -86,12 +84,12 @@ func _process(delta):
 		add_child(finish_game)
 
 	if GameManager.clients_total >= GameManager.last_day:
-		light_2d.visible = false
 		GameManager.end_of_the_day = true
 		GameManager.finish_day()
 		day_result()
 	else:
 		if !GameManager.have_client and !GameManager.end_of_the_day:
+			GameManager.head_calculation_handler = true
 			spawn_client()
 		if GameManager.final_touch:
 			spawn_customization()

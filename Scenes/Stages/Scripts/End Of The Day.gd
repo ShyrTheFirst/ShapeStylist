@@ -44,6 +44,9 @@ func _ready():
 	GameManager.weekly_profit -= 20
 	
 func _process(delta):
+	if GameManager.first_run:
+		GameManager.first_run = false
+
 	actual_money.text = str(GameManager.weekly_profit)
 	if GameManager.haveDeco1:
 		selected_flor.visible = true

@@ -1,5 +1,9 @@
 extends Node
 
+var first_run : bool = true
+
+var cantLoad : bool = true
+
 var actual_day : int = 0
 var last_day : int = 3 #how many clients the day will last
 var game_duration : int = 3
@@ -7,6 +11,8 @@ var clients_and_days : Dictionary = {}
 var clients_total : int = 0
 var clients_done : int = 0
 var have_client : bool = false
+
+var head_calculation_handler : bool = false
 
 var final_touch : bool = false
 var shape_value : int = 0
@@ -44,6 +50,10 @@ var game_started : bool = false
 var game_running : bool = false
 var end_of_the_day : bool = false
 
+var color_robot_r : float
+var color_robot_g : float
+var color_robot_b : float
+
 func _ready():
 	_setup_LoL_load_state_message_received()
 	LolApi.send_saves_request_message()
@@ -71,31 +81,7 @@ func finish_day():
 	client_losts = 0
 
 	var save_data = {
-	"actual_day":actual_day,
-	"clients_total":clients_total,
-	"have_client":have_client,
-	"final_touch":final_touch,
-	"shape_value":shape_value,
-	"last_phrase":last_phrase,
-	"goodbye_client":goodbye_client,
-	"give_up_client":give_up_client,
-	"client_losts":client_losts,
-	"total_clients_losts_in_run":total_clients_losts_in_run,
-	"daily_profit":daily_profit,
-	"weekly_profit":weekly_profit,
-	"total_clients_in_run":total_clients_in_run,
-	"total_mistakes":total_mistakes,
-	"haveDeco1":haveDeco1,
-	"haveDeco2":haveDeco2,
-	"haveDeco3":haveDeco3,
-	"flor_cor":flor_cor,
-	"quadro_cor":quadro_cor,
-	"MD_cor":MD_cor
-	}
-	LolApi.send_save_state_message(save_data)
-
-func save_during_game():
-	var save_data = {
+	"first_run":first_run,
 	"actual_day":actual_day,
 	"clients_total":clients_total,
 	"have_client":have_client,
@@ -121,7 +107,10 @@ func save_during_game():
 
 func load_day():
 	if latest_save == {}:
+		cantLoad = true
 		return
+	cantLoad = false
+	first_run = latest_save["first_run"]
 	actual_day = latest_save["actual_day"]
 	clients_total = latest_save["clients_total"]
 	have_client = latest_save["have_client"]

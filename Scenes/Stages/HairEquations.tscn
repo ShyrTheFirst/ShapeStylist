@@ -1,51 +1,132 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Assets/tip2.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Stages/Scripts/HairEquations.gd" type="Script" id=2]
-[ext_resource path="res://Assets/buttons/Disabled-OK.png" type="Texture" id=3]
-[ext_resource path="res://Assets/buttons/Hover-OK.png" type="Texture" id=4]
-[ext_resource path="res://Assets/buttons/OK.png" type="Texture" id=5]
-[ext_resource path="res://Assets/buttons/Clicked-OK.png" type="Texture" id=6]
-[ext_resource path="res://Assets/buttons/Clicked-Play.png" type="Texture" id=7]
+[ext_resource path="res://Assets/shapes/shape_0c.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Stages/Scripts/HairEquations_node.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/callables/Scripts/Popup_message.gd" type="Script" id=9]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://Assets/buttons/Hover-Play.png" type="Texture" id=11]
-[ext_resource path="res://Assets/buttons/Disabled-Play.png" type="Texture" id=12]
-[ext_resource path="res://Assets/buttons/Play.png" type="Texture" id=13]
-
-[sub_resource type="StreamTexture" id=5]
-flags = 4
 
 [sub_resource type="DynamicFont" id=3]
 size = 30
 font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=9]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=43]
+bg_color = Color( 0, 0.282353, 0.772549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id=10]
 bg_color = Color( 1, 0, 0, 1 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="DynamicFont" id=38]
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
 
-[sub_resource type="StyleBoxTexture" id=30]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=39]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=40]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=41]
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0, 0, 0, 1 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=42]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="DynamicFont" id=8]
 size = 20
 font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0, 0.270588, 0.682353, 1 )
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="DynamicFont" id=27]
 font_data = ExtResource( 10 )
@@ -118,21 +199,47 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 2, 2 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="StyleBoxTexture" id=42]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="DynamicFont" id=31]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 10 )
 
-[sub_resource type="StyleBoxTexture" id=43]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=44]
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=33]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=45]
-texture = ExtResource( 13 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 8 )
@@ -148,8 +255,9 @@ margin_right = 800.0
 margin_bottom = 576.0
 
 [node name="Sprite" type="Sprite" parent="HairEquations"]
-position = Vector2( 618, 214 )
-texture = SubResource( 5 )
+position = Vector2( 380, 220 )
+scale = Vector2( 0.933333, 0.933333 )
+texture = ExtResource( 3 )
 
 [node name="Result" type="Label" parent="HairEquations"]
 margin_left = 90.0
@@ -166,6 +274,7 @@ margin_top = 50.0001
 margin_right = 83.0
 margin_bottom = 88.0001
 custom_fonts/font = SubResource( 9 )
+custom_styles/normal = SubResource( 43 )
 align = 1
 context_menu_enabled = false
 virtual_keyboard_enabled = false
@@ -189,6 +298,7 @@ margin_top = 50.0001
 margin_right = 193.0
 margin_bottom = 88.0001
 custom_fonts/font = SubResource( 9 )
+custom_styles/normal = SubResource( 43 )
 align = 1
 context_menu_enabled = false
 virtual_keyboard_enabled = false
@@ -212,10 +322,12 @@ margin_top = 94.0001
 margin_right = 92.0
 margin_bottom = 126.0
 rect_scale = Vector2( 2, 2 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 30 )
-custom_styles/disabled = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
+custom_fonts/font = SubResource( 38 )
+custom_styles/hover = SubResource( 39 )
+custom_styles/pressed = SubResource( 40 )
+custom_styles/disabled = SubResource( 41 )
+custom_styles/normal = SubResource( 42 )
+text = "OK"
 
 [node name="Numbers" type="GridContainer" parent="HairEquations"]
 margin_left = 350.0
@@ -229,6 +341,9 @@ margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "1"
 
 [node name="2" type="Button" parent="HairEquations/Numbers"]
@@ -237,6 +352,9 @@ margin_right = 104.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "2"
 
 [node name="3" type="Button" parent="HairEquations/Numbers"]
@@ -245,6 +363,9 @@ margin_right = 158.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "3"
 
 [node name="4" type="Button" parent="HairEquations/Numbers"]
@@ -253,6 +374,9 @@ margin_right = 212.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "4"
 
 [node name="5" type="Button" parent="HairEquations/Numbers"]
@@ -261,6 +385,9 @@ margin_right = 266.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "5"
 
 [node name="6" type="Button" parent="HairEquations/Numbers"]
@@ -269,6 +396,9 @@ margin_right = 50.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "6"
 
 [node name="7" type="Button" parent="HairEquations/Numbers"]
@@ -278,6 +408,9 @@ margin_right = 104.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "7"
 
 [node name="8" type="Button" parent="HairEquations/Numbers"]
@@ -287,6 +420,9 @@ margin_right = 158.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "8"
 
 [node name="9" type="Button" parent="HairEquations/Numbers"]
@@ -296,6 +432,9 @@ margin_right = 212.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "9"
 
 [node name="0" type="Button" parent="HairEquations/Numbers"]
@@ -305,6 +444,9 @@ margin_right = 266.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "0"
 
 [node name="Units" type="GridContainer" parent="HairEquations"]
@@ -318,6 +460,9 @@ margin_right = 50.0
 margin_bottom = 50.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 27 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "cm²"
 
 [node name="inch" type="Button" parent="HairEquations/Units"]
@@ -326,6 +471,9 @@ margin_right = 50.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 28 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "in²"
 
 [node name="backspace" type="Button" parent="HairEquations"]
@@ -335,6 +483,9 @@ margin_right = 676.0
 margin_bottom = 530.0
 rect_min_size = Vector2( 50, 50 )
 custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 text = "<--"
 
 [node name="FinalTimer" type="Timer" parent="HairEquations"]
@@ -379,10 +530,11 @@ margin_top = 10.0
 margin_right = 790.0
 margin_bottom = 60.0
 rect_min_size = Vector2( 50, 50 )
-custom_styles/hover = SubResource( 42 )
-custom_styles/pressed = SubResource( 43 )
-custom_styles/disabled = SubResource( 44 )
-custom_styles/normal = SubResource( 45 )
+custom_fonts/font = SubResource( 31 )
+custom_styles/hover = SubResource( 32 )
+custom_styles/pressed = SubResource( 33 )
+custom_styles/normal = SubResource( 34 )
+text = "?"
 
 [connection signal="pressed" from="HairEquations/Result/Check Amswer" to="HairEquations" method="_on_Check_Amswer_pressed"]
 [connection signal="pressed" from="HairEquations/Numbers/1" to="HairEquations" method="_on_1_pressed"]

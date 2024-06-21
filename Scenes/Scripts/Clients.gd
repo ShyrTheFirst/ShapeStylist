@@ -62,6 +62,9 @@ func _ready():
 	haircut_1.modulate.r = randf()
 	haircut_1.modulate.g = randf()
 	haircut_1.modulate.b = randf()
+	GameManager.color_robot_r = haircut_1.modulate.r
+	GameManager.color_robot_g = haircut_1.modulate.g
+	GameManager.color_robot_b = haircut_1.modulate.b
 
 func _process(delta):
 	if GameManager.can_change_robot:
@@ -75,6 +78,10 @@ func _process(delta):
 
 	if GameManager.goodbye_client:
 		queue_free()
+	
+	if GameManager.head_calculation_handler != true:
+		last_stage = true
+		GameManager.head_calculation_handler = true
 
 	if visibility_check:
 		if haircut_1.modulate.a < 1:
@@ -89,6 +96,7 @@ func _process(delta):
 			conversation_time(delta)
 
 	if next_stage :
+		label.visible = false
 		head_calculate()
 
 	if last_stage:
@@ -128,7 +136,7 @@ func conversation_time(delta):
 
 func head_calculate():
 	var calculate = head_calculation_stage.instance()
-	add_child(calculate)
+	get_parent().add_child(calculate)
 	next_stage = false
 
 func calculate_the_area():

@@ -1,0 +1,26 @@
+shape 0c
+lado 1 -> (-171,-32)
+lado 2 -> (-32, -192)
+
+calculo -> l1*l2
+
+shape 01c
+lado 1 -> (-64,-182)
+lado 2 -> (21,-107)
+lado 3 -> (42,-32)
+lado 4 -> (128,10)
+lado 5 -> (-21, 75)
+lado 6 -> (-160,0)
+
+calculo -> (l1*l2/2) + l3*l4 + ((l5-l3) * l6)
+
+shape 02c
+lado 1 -> (-160,0)
+lado 2 -> (-32,-192)
+lado 3 -> (64,-107)
+lado 4 -> (128,0)
+lado 5 -> (32,160)
+lado 6 -> (-75,160)
+
+calculo var1 -> ((l1 - l3) * l6) + ((l1 - l3) * l5) + (l2 * l3)
+calculo var2 -> 

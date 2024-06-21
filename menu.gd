@@ -15,8 +15,7 @@ func _ready():
 	start__shader.text = LanguageSelector.frases["comecar"]
 	load__shader.text = LanguageSelector.frases["carregar"]
 	
-	#Se não tiver save
-	#load__game.disabled = true
+	load__game.disabled = GameManager.cantLoad
 
 func _on_Button_pressed():
 	get_tree().change_scene_to(tutorial)

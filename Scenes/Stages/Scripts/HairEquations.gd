@@ -62,10 +62,12 @@ func _ready():
 		unit_type = "cm"
 	else:
 		unit_type = "in"
-
 	var pick_random_texture = int(rand_range(0,(texture_list.size()-1)))
+	if GameManager.first_run:
+		pick_random_texture = 0
+
 	sprite.texture = texture_list[pick_random_texture]
-	
+
 	match pick_random_texture:
 		0:
 			GameManager.shape_value = 0
