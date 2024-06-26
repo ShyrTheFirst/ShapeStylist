@@ -1,0 +1,29 @@
+STYLEBOX FLAT
+
+hover -> 0067b9
+pressed -> 00bfa9
+normal -> 640065ff
+
+border -> 00cccccc
+blend -> false
+border width -> 5
+corner radius -> 25
+
+
+
+_________________________
+disabled -> bbbbbb
+border -> 000000
+blend -> true
+border width -> 5
+corner radius -> 25
+
+
+
+_________________________
+numbers
+Normal -> 0045ae
+border width -> 8
+corner radius -> 25
+border -> 00cccccc
+blend -> false

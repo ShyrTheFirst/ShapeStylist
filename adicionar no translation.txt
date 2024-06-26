@@ -1,0 +1,47 @@
+"aviso" :
+
+"!!!WARNING!!!"
+
+"¡¡¡CUIDADO!!!"
+_______________________________________________________________
+"aviso_mensagem":
+
+"Finish the client to save the game or you /n
+will lose unsaved progress."
+
+"Finaliza el cliente para guardar el juego /n
+o perderás el progreso no guardado."
+_______________________________________________________________
+"continuar" :
+
+"Continue"
+
+"Continuar"
+_______________________________________________________________
+"proximo":
+
+"Next"
+
+"Proximo"
+_______________________________________________________________
+"insatisfeitos": #substituir pelo seguinte:
+"tried again:"
+
+"tentou de novo:"
+_______________________________________________________________
+"dinheiro_total": #substituir pelo seguinte:
+"Week money earned"
+
+"Denero ganho na semana"
+
+_______________________________________________________________
+_______________________________________________________________
+deletar ---->
+	background_2.text = LanguageSelector.frases["fundo_jogo"]
+	robot_2.text = LanguageSelector.frases["apresentacao"]
+	robot_4.text = LanguageSelector.frases["instrucao_inicial"]
+	metric_tape_2.text = LanguageSelector.frases["explicacao_fita"]
+	metric_tape_3.text = LanguageSelector.frases["validando_etapa"]
+	shape_2.text = LanguageSelector.frases["calcular_area"]
+	robot_6.text = LanguageSelector.frases["estilizar"]
+	
