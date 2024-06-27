@@ -11,13 +11,19 @@ onready var continue_label = $CanvasLayer/Button/Warning/ContinueLabel
 var slider_open : bool = false
 onready var h_slider = $CanvasLayer/HSlider
 
+func _ready():
+	pass
+	#warning_label.text = LanguageSelector.frases["aviso"]
+	#message_label.text = LanguageSelector.frases["aviso_mensagem"]
+	#continue_label.text = LanguageSelector.frases["continuar"]
+
 func _process(delta):
 	if GameManager.pausing:
 		get_tree().paused = true
 	else:
 		get_tree().paused = false
 	
-	if GameManager.game_started or GameManager.game_running:
+	if GameManager.game_running:
 		canvas_layer.visible = true
 	else:
 		canvas_layer.visible = false
@@ -41,8 +47,9 @@ func _on_HSlider_value_changed(value):
 func _on_Y_pressed():
 	GameManager.game_running = false
 	GameManager.game_started = true
+	warning.visible = false
 	get_tree().change_scene_to(load("res://menu.tscn"))
 
 func _on_N_pressed():
 	get_tree().paused = false
-	queue_free()
+	warning.visible = false

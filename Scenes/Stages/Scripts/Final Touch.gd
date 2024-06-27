@@ -11,6 +11,17 @@ var shape_03 = preload("res://Assets/shapes/Shapes_finalized/shape_03.png")
 var shape_04 = preload("res://Assets/shapes/Shapes_finalized/shape_04.png")
 var shape_05 = preload("res://Assets/shapes/Shapes_finalized/shape_05.png")
 
+onready var color_rect_6 = $ColorRect6
+onready var color_rect = $ColorRect
+onready var color_rect_2 = $ColorRect2
+onready var color_rect_3 = $ColorRect3
+onready var color_rect_4 = $ColorRect4
+onready var color_rect_5 = $ColorRect5
+onready var direita = $Direita
+onready var esquerda = $Esquerda
+onready var confirm = $Confirm
+
+
 func _ready():
 	GameManager.can_change_robot = true
 	match GameManager.shape_value:
@@ -99,11 +110,16 @@ func _on_Esquerda_pressed():
 		haircut_1.rotation_degrees = 90
 
 func _on_Confirm_pressed():
-	$Panel.visible = false
-	$ColorSelector.visible = false
-	$Direita.visible = false
-	$Esquerda.visible = false
-	$Confirm.visible = false
+	color_rect_6.visible = false
+	color_rect.visible = false
+	color_rect_2.visible = false
+	color_rect_3.visible = false
+	color_rect_4.visible = false
+	color_rect_5 .visible = false
+	direita.visible = false
+	esquerda.visible = false
+	confirm.visible = false
+	color_selector.visible = false
 	finish_client.start()
 	GameManager.last_phrase = true
 

@@ -1,25 +1,53 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/Stages/Scripts/Client_Final.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Assets/buttons/button1.png" type="Texture" id=3]
-[ext_resource path="res://Assets/buttons/button_hover.png" type="Texture" id=4]
-[ext_resource path="res://Assets/buttons/button_clicked.png" type="Texture" id=5]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=3]
+[ext_resource path="res://Assets/deco/flower1.png" type="Texture" id=4]
 [ext_resource path="res://Assets/buttons/Coin.png" type="Texture" id=6]
 [ext_resource path="res://Assets/background_2.png" type="Texture" id=7]
 [ext_resource path="res://Assets/background.png" type="Texture" id=8]
 
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 128, 32 )
+[sub_resource type="DynamicFont" id=9]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 128, 32 )
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=11]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 128, 32 )
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
@@ -69,6 +97,42 @@ outline_size = 2
 outline_color = Color( 0, 0.294118, 0.392157, 1 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="StyleBoxFlat" id=13]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=14]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=15]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [node name="Client_Final" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -98,9 +162,10 @@ margin_left = 16.0
 margin_top = -79.0
 margin_right = 144.0
 margin_bottom = -47.0
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/normal = SubResource( 11 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/normal = SubResource( 12 )
 text = "NEXT PHASE"
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Panel"]
@@ -189,4 +254,70 @@ position = Vector2( 619, 24 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 6 )
 
+[node name="Flowers" type="Sprite" parent="CanvasLayer"]
+visible = false
+position = Vector2( 633, 54 )
+scale = Vector2( 5.20312, 5.20312 )
+texture = ExtResource( 4 )
+
+[node name="TTS" type="Button" parent="CanvasLayer"]
+margin_left = 651.0
+margin_top = 235.0
+margin_right = 683.0
+margin_bottom = 267.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TTS2" type="Button" parent="CanvasLayer"]
+margin_left = 651.0
+margin_top = 289.0
+margin_right = 683.0
+margin_bottom = 321.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS2"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TTS3" type="Button" parent="CanvasLayer"]
+margin_left = 651.0
+margin_top = 340.0
+margin_right = 683.0
+margin_bottom = 372.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS3"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TTS4" type="Button" parent="CanvasLayer"]
+margin_left = 651.0
+margin_top = 391.0
+margin_right = 683.0
+margin_bottom = 423.0
+custom_styles/hover = SubResource( 13 )
+custom_styles/pressed = SubResource( 14 )
+custom_styles/normal = SubResource( 15 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS4"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
 [connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS" to="." method="_on_TTS_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS2" to="." method="_on_TTS2_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS3" to="." method="_on_TTS3_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS4" to="." method="_on_TTS4_pressed"]

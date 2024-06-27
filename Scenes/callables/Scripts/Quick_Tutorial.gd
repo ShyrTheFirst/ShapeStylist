@@ -1,27 +1,69 @@
 extends Node2D
 
-onready var background_2 = $CanvasLayer/Background2
-onready var robot_2 = $CanvasLayer/Robot2
-onready var robot_4 = $CanvasLayer/Robot4
-onready var metric_tape_2 = $CanvasLayer/MetricTape2
-onready var metric_tape_3 = $CanvasLayer/MetricTape3
-onready var shape_2 = $CanvasLayer/Shape2
-onready var robot_6 = $CanvasLayer/Robot6
-
 onready var button = $CanvasLayer/Button
+onready var button_focus = $CanvasLayer/Button/Button_focus
+onready var money__line = $CanvasLayer/Panel2/Money_Line
+onready var button__line = $CanvasLayer/Panel2/Button_Line
+onready var money_explain = $CanvasLayer/Panel2/Money_LIne/Money_explain
+onready var button_explain = $CanvasLayer/Panel2/Button_Line/Button_explain
+onready var explanation = $CanvasLayer/Panel2/Explanation
+
+var current_phrase : String
+
+var tutorial_message : int = 0
+
+onready var right_detector = $CanvasLayer/Panel2/Right_click_detection/CollisionPolygon2D
+onready var left_detector = $CanvasLayer/Panel2/left_click_detection/CollisionPolygon2D
+onready var right = $CanvasLayer/Panel2/Right
+onready var left = $CanvasLayer/Panel2/Left
+
 
 func _ready():
 	GameManager.game_started = false
 	GameManager.game_running = false
-	button.text = LanguageSelector.frases["comecar"]
-	background_2.text = LanguageSelector.frases["fundo_jogo"]
-	robot_2.text = LanguageSelector.frases["apresentacao"]
-	robot_4.text = LanguageSelector.frases["instrucao_inicial"]
-	metric_tape_2.text = LanguageSelector.frases["explicacao_fita"]
-	metric_tape_3.text = LanguageSelector.frases["validando_etapa"]
-	shape_2.text = LanguageSelector.frases["calcular_area"]
-	robot_6.text = LanguageSelector.frases["estilizar"]
-	
+	button.text = LanguageSelector.frases["proximo"]
+	money_explain.text = LanguageSelector.frases[""] #Frase sobre o money, frase fixa
+	button_explain.text = LanguageSelector.frases[""] #Frase sobre os botoes, frase fixa
 
-func _on_Button_pressed(): #Start
-	get_tree().change_scene_to(preload("res://Scenes/Stages/Client\'s Request.tscn"))
+func _process(delta):
+	match tutorial_message:
+		0:
+			explanation.text = LanguageSelector.frases[""] #primeira parte do tutorial
+			current_phrase = "" #string da frase acima
+			left_detector.disabled = true
+			left.visible = false
+			right_detector.disabled = false
+			right.visible = true
+			money__line.visible = false
+			button__line.visible = false
+		1:
+			pass
+			money__line.visible = false#####
+			button__line.visible = false####
+			left_detector.disabled = false
+			left.visible = true
+			right_detector.disabled = false
+			right.visible = true
+		2:
+			pass
+
+func _on_Button_pressed():
+	get_tree().change_scene_to(preload("res://Scenes/callables/Quick_Tutorial_2.tscn"))
+
+func _on_TTS_pressed():
+	LolApi.send_tts_message(current_phrase)
+
+func _on_Right_click_detection_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		tutorial_message += 1
+
+func _on_TTS_button_pressed():
+	LolApi.send_tts_message("")
+
+func _on_TTS_money_pressed():
+	LolApi.send_tts_message("")
+
+
+func _on_left_click_detection_input_event(viewport, event, shape_idx):
+	if event is InputEventMouseButton and event.pressed:
+		tutorial_message -= 1

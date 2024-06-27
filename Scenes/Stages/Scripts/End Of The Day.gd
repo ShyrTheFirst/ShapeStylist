@@ -181,3 +181,12 @@ func _on_MDCor3_pressed():
 	md_cor_2.pressed = false
 	md_cor_1.pressed = false
 	GameManager.MD_cor = 3
+
+func _on_TTS_pressed():
+	LolApi.send_tts_message("dinheiro_fim_do_dia")
+
+func _on_TTS2_pressed():
+	LolApi.send_tts_message("despesas")
+
+func _on_TTS3_pressed():
+	LolApi.send_tts_message("lucro")

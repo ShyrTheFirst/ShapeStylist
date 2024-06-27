@@ -136,6 +136,7 @@ func conversation_time(delta):
 
 func head_calculate():
 	var calculate = head_calculation_stage.instance()
+	calculate.data(client_day, client_num)
 	get_parent().add_child(calculate)
 	next_stage = false
 
@@ -154,4 +155,3 @@ func give_up():
 func _on_GiveUpCountdown_timeout():
 	GameManager.have_client = false
 	queue_free()
-	

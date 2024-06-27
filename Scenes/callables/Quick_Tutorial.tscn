@@ -1,32 +1,116 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scenes/callables/Scripts/Quick_Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://Assets/metric_tape.png" type="Texture" id=2]
-[ext_resource path="res://Assets/background.png" type="Texture" id=3]
-[ext_resource path="res://Assets/shapes/shape_0c.png" type="Texture" id=4]
-[ext_resource path="res://Assets/robot.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Tutorial/tutorial_1_1.PNG" type="Texture" id=3]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Stages/Scripts/Right.gd" type="Script" id=5]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://Assets/buttons/button1.png" type="Texture" id=7]
-[ext_resource path="res://Assets/buttons/button_hover.png" type="Texture" id=8]
-[ext_resource path="res://Assets/buttons/button_clicked.png" type="Texture" id=9]
-[ext_resource path="res://Assets/robot_with_head.png" type="Texture" id=10]
-[ext_resource path="res://Assets/robot_without_head.png" type="Texture" id=11]
+[ext_resource path="res://Assets/shaders/bright_shader.gdshader" type="Shader" id=7]
 
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 128, 32 )
+[sub_resource type="CanvasItemMaterial" id=28]
+blend_mode = 1
+light_mode = 2
 
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 128, 32 )
-
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 128, 32 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 20
+[sub_resource type="DynamicFont" id=29]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=30]
+
+[sub_resource type="StyleBoxFlat" id=31]
+
+[sub_resource type="StyleBoxFlat" id=32]
+
+[sub_resource type="Shader" id=27]
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform float circle_width: hint_range(0.0, 1.0, 0.05) = 0.15;
+uniform float wait_time: hint_range(0.0, 5.0, 0.1) = 0.5;
+uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
+uniform float alpha_boost: hint_range(1.0, 5.0, 0.1) = 2.0;
+uniform vec4 color_bip : hint_color;
+
+// --- Functions --- //
+void fragment() {
+	float dist = distance(UV, vec2(0.5));
+	float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
+	COLOR = color_bip;
+	COLOR.a *= 1.0 - step(0.5, mod_dist);
+	COLOR.a += step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
+	COLOR.a -= 2.0 * dist;
+	COLOR.a *= alpha_boost;
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=33]
+shader = SubResource( 27 )
+shader_param/circle_width = 0.2
+shader_param/wait_time = 0.1
+shader_param/speed = 1.0
+shader_param/alpha_boost = 3.0
+shader_param/color_bip = Color( 0, 0.717647, 0.811765, 1 )
+
+[sub_resource type="DynamicFont" id=34]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=38]
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=37]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="ShaderMaterial" id=39]
+shader = ExtResource( 7 )
+shader_param/shine_color = Color( 1, 1, 1, 1 )
+shader_param/line_width = 0.1
+shader_param/angle = 0.785398
+shader_param/speed = 0.5
+shader_param/wait_cycles = 0.2
+
+[sub_resource type="Curve" id=40]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
 [node name="Quick_Tutorial" type="Node2D"]
 script = ExtResource( 1 )
@@ -38,6 +122,31 @@ modulate = Color( 0, 0, 0, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 
+[node name="Tutorial" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 516, 288 )
+texture = ExtResource( 3 )
+
+[node name="Background_shadow" type="Panel" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.784314 )
+margin_left = 2.0
+margin_top = -1.0
+margin_right = 1025.0
+margin_bottom = 573.0
+
+[node name="Bright_info" type="Panel" parent="CanvasLayer"]
+material = SubResource( 28 )
+margin_left = 479.0
+margin_top = 3.0
+margin_right = 557.0
+margin_bottom = 46.0
+
+[node name="Bright_info2" type="Panel" parent="CanvasLayer"]
+material = SubResource( 28 )
+margin_left = 32.0
+margin_top = 498.0
+margin_right = 233.0
+margin_bottom = 576.0
+
 [node name="Button" type="Button" parent="CanvasLayer"]
 anchor_left = 1.0
 anchor_top = 1.0
@@ -47,116 +156,138 @@ margin_left = -166.0
 margin_top = -64.0
 margin_right = -38.0
 margin_bottom = -32.0
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-text = "START GAME"
+custom_fonts/font = SubResource( 29 )
+custom_styles/hover = SubResource( 30 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/normal = SubResource( 32 )
+text = "PROXIMO"
 
-[node name="Background" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 183, 175 )
-scale = Vector2( 0.405, 0.405 )
-texture = ExtResource( 3 )
-
-[node name="Background2" type="Label" parent="CanvasLayer"]
-margin_left = 13.0
-margin_top = 27.0
-margin_right = 386.0
-margin_bottom = 47.0
-custom_fonts/font = SubResource( 1 )
-text = "Este é o cenário, que você poderá decorar"
-
-[node name="Robot" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 489, 193 )
-scale = Vector2( 0.44, 0.44 )
-texture = ExtResource( 10 )
-hframes = 2
-
-[node name="Robot2" type="Label" parent="CanvasLayer"]
-margin_left = 396.0
-margin_top = 58.0
-margin_right = 563.0
-margin_bottom = 101.0
-custom_fonts/font = SubResource( 1 )
-text = "Este é o 
-seu cliente"
-align = 1
-
-[node name="Robot3" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 829, 173 )
-scale = Vector2( 0.44, 0.44 )
-texture = ExtResource( 10 )
-hframes = 2
-vframes = 3
-
-[node name="Robot4" type="Label" parent="CanvasLayer"]
-margin_left = 659.0
-margin_top = 18.0
-margin_right = 957.0
-margin_bottom = 61.0
-custom_fonts/font = SubResource( 1 )
-text = "Primeiro calcule a 
-area da cabeça"
-align = 1
-
-[node name="MetricTape" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 789, 170 )
+[node name="Button_focus" type="Sprite" parent="CanvasLayer/Button"]
+visible = false
+material = SubResource( 33 )
+position = Vector2( 62, 16 )
+scale = Vector2( 3.66667, 3.20833 )
 texture = ExtResource( 2 )
 
-[node name="MetricTape2" type="Label" parent="CanvasLayer"]
-margin_left = 633.0
-margin_top = 78.0
-margin_right = 979.0
-margin_bottom = 121.0
-custom_fonts/font = SubResource( 1 )
-text = "Arrastando a fita métrica
- para calcular"
-align = 1
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+margin_left = 256.0
+margin_top = 139.0
+margin_right = 885.0
+margin_bottom = 334.0
 
-[node name="MetricTape3" type="Label" parent="CanvasLayer"]
-margin_left = 629.0
-margin_top = 218.0
-margin_right = 975.0
-margin_bottom = 261.0
-custom_fonts/font = SubResource( 1 )
-text = "Um bom cabelereiro precisa 
-conhecer seu cliente"
-align = 1
+[node name="Explanation" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 177.0
+margin_top = 19.0
+margin_right = 447.0
+margin_bottom = 43.0
+custom_fonts/font = SubResource( 34 )
+text = "Hello! This is the tutorial!"
 
-[node name="Shape1" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 178, 469 )
-scale = Vector2( 0.44, 0.44 )
+[node name="Money_Line" type="Line2D" parent="CanvasLayer/Panel2"]
+visible = false
+position = Vector2( -74, 0 )
+points = PoolVector2Array( 346, -92, 346, -54, 290, -54, 290, -29 )
+default_color = Color( 1, 1, 1, 1 )
+
+[node name="Money_explain" type="Label" parent="CanvasLayer/Panel2/Money_Line"]
+margin_left = 235.0
+margin_top = -28.0
+margin_right = 356.0
+margin_bottom = -14.0
+custom_fonts/font = SubResource( 38 )
+text = "This is your money"
+
+[node name="TTS_money" type="Button" parent="CanvasLayer/Panel2/Money_Line"]
+margin_left = 371.0
+margin_top = -36.0
+margin_right = 403.0
+margin_bottom = -4.0
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/Panel2/Money_Line/TTS_money"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 
-[node name="Shape2" type="Label" parent="CanvasLayer"]
-margin_left = -15.0
-margin_top = 355.0
-margin_right = 405.0
-margin_bottom = 398.0
-custom_fonts/font = SubResource( 1 )
-text = "Então, calcule a área do corte"
-align = 1
+[node name="Button_Line" type="Line2D" parent="CanvasLayer/Panel2"]
+visible = false
+position = Vector2( -416, 385 )
+points = PoolVector2Array( 346, -92, 346, -54, 290, -54, 290, -29 )
+default_color = Color( 1, 1, 1, 1 )
 
-[node name="Robot5" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 679, 514 )
-scale = Vector2( 0.44, 0.44 )
-texture = ExtResource( 11 )
-hframes = 2
+[node name="Button_explain" type="Label" parent="CanvasLayer/Panel2/Button_Line"]
+margin_left = 243.0
+margin_top = -110.0
+margin_right = 470.0
+margin_bottom = -94.0
+custom_fonts/font = SubResource( 38 )
+text = "Back to menu and adjust volume!"
 
-[node name="Robot7" type="Sprite" parent="CanvasLayer"]
-modulate = Color( 1, 0, 0, 1 )
-position = Vector2( 678, 424 )
-scale = Vector2( 0.44, 0.44 )
-texture = ExtResource( 5 )
-hframes = 4
-vframes = 6
+[node name="TTS_button" type="Button" parent="CanvasLayer/Panel2/Button_Line"]
+margin_left = 473.0
+margin_top = -116.0
+margin_right = 505.0
+margin_bottom = -84.0
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
 
-[node name="Robot6" type="Label" parent="CanvasLayer"]
-margin_left = 463.0
-margin_top = 385.0
-margin_right = 895.0
-margin_bottom = 428.0
-custom_fonts/font = SubResource( 1 )
-text = "Por fim, deixe o robô estiloso!"
-align = 1
+[node name="Icon" type="Sprite" parent="CanvasLayer/Panel2/Button_Line/TTS_button"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
+[node name="Right" type="Line2D" parent="CanvasLayer/Panel2"]
+material = SubResource( 39 )
+position = Vector2( 563.493, 170.938 )
+scale = Vector2( 1.86111, 1.75 )
+points = PoolVector2Array( 18.75, -0.25, 2.75, -0.25 )
+width_curve = SubResource( 40 )
+default_color = Color( 0, 0.109804, 1, 1 )
+script = ExtResource( 5 )
+
+[node name="Right_click_detection" type="Area2D" parent="CanvasLayer/Panel2"]
+position = Vector2( 573, 178.25 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Panel2/Right_click_detection"]
+polygon = PoolVector2Array( -5, -17.25, -5, 1.75, 26, -7.25 )
+
+[node name="Left" type="Line2D" parent="CanvasLayer/Panel2"]
+material = SubResource( 39 )
+position = Vector2( 43.507, 170.937 )
+rotation = -3.14159
+scale = Vector2( 1.86111, 1.75 )
+points = PoolVector2Array( 18.75, -0.25, 2.75, -0.25 )
+width_curve = SubResource( 40 )
+default_color = Color( 0, 0.109804, 1, 1 )
+script = ExtResource( 5 )
+
+[node name="left_click_detection" type="Area2D" parent="CanvasLayer/Panel2"]
+position = Vector2( 53.014, 178.25 )
+rotation = -3.14159
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="CanvasLayer/Panel2/left_click_detection"]
+polygon = PoolVector2Array( 15.014, -1.75003, 15.014, 15.25, 44.014, 7.24985 )
+
+[node name="TTS" type="Button" parent="CanvasLayer"]
+margin_left = 840.0
+margin_top = 151.0
+margin_right = 872.0
+margin_bottom = 183.0
+custom_styles/hover = SubResource( 35 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/normal = SubResource( 37 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
 
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel2/Money_Line/TTS_money" to="." method="_on_TTS_money_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel2/Button_Line/TTS_button" to="." method="_on_TTS_button_pressed"]
+[connection signal="input_event" from="CanvasLayer/Panel2/Right_click_detection" to="." method="_on_Right_click_detection_input_event"]
+[connection signal="input_event" from="CanvasLayer/Panel2/left_click_detection" to="." method="_on_left_click_detection_input_event"]
+[connection signal="pressed" from="CanvasLayer/TTS" to="." method="_on_TTS_pressed"]

@@ -44,8 +44,14 @@ var result_array : Array = []
 onready var wrong_unit = $Answer_text/unit_answer/WrongUnit
 onready var wrong_result = $Answer_text/result_answer/WrongResult
 
+var client_day
 
- #####When we can cut the robot's head, GameManager.can_change_robot = true
+var client_num
+
+func data(day, num):
+	client_day = day
+	client_num = num
+
 func _ready():
 	robot_with_head.modulate.r = GameManager.color_robot_r
 	robot_with_head.modulate.g = GameManager.color_robot_g
@@ -266,8 +272,13 @@ func _on_Button_pressed():
 		popup_message.visible = true
 		animation_player.play("popup")
 		end_stage.start()
+	else:
+		if GameManager.count_errors(client_day, client_num) >= 4:
+			GameManager.give_up_client = true
+			queue_free()
+		GameManager.add_error(client_day, client_num, 1)
 
-	elif numbers_result == result_array and (unit_type + "²") != unit_answer.text:
+	if numbers_result == result_array and (unit_type + "²") != unit_answer.text:
 		sprite_3.visible = true
 		wrong_unit.visible = true
 
@@ -289,3 +300,7 @@ func _on_Helper_pressed():
 func _on_EndStage_timeout():
 	GameManager.head_calculation_handler = false
 	queue_free()
+
+
+func _on_TTS_pressed():
+	LolApi.send_tts_message("texto_resultado")

@@ -1,91 +1,187 @@
-[gd_scene load_steps=36 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Singletons/pause_handler.gd" type="Script" id=1]
-[ext_resource path="res://Assets/buttons/pixil-frame-19.png" type="Texture" id=2]
-[ext_resource path="res://Assets/buttons/pixil-frame-17.png" type="Texture" id=3]
-[ext_resource path="res://Assets/buttons/pixil-frame-20.png" type="Texture" id=4]
-[ext_resource path="res://Assets/buttons/pixil-frame-18.png" type="Texture" id=5]
-[ext_resource path="res://Assets/buttons/pixil-frame-24.png" type="Texture" id=6]
-[ext_resource path="res://Assets/buttons/pixil-frame-22.png" type="Texture" id=7]
-[ext_resource path="res://Assets/buttons/pixil-frame-21.png" type="Texture" id=8]
-[ext_resource path="res://Assets/buttons/pixil-frame-23.png" type="Texture" id=9]
-[ext_resource path="res://Assets/buttons/ok_up.png" type="Texture" id=10]
-[ext_resource path="res://Assets/buttons/ok_disabled.png" type="Texture" id=11]
-[ext_resource path="res://Assets/buttons/ok_down.png" type="Texture" id=12]
+[ext_resource path="res://Assets/ButtonsOutline/home.png" type="Texture" id=2]
+[ext_resource path="res://Assets/ButtonsOutline/sound.png" type="Texture" id=3]
+[ext_resource path="res://Assets/ButtonsOutline/left.png" type="Texture" id=4]
+[ext_resource path="res://Assets/ButtonsOutline/ok.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=13]
-[ext_resource path="res://Assets/buttons/TurnLeft.png" type="Texture" id=14]
-[ext_resource path="res://Assets/buttons/OK.png" type="Texture" id=15]
-[ext_resource path="res://Assets/buttons/Disabled-Left.png" type="Texture" id=16]
-[ext_resource path="res://Assets/buttons/Clicked-Left.png" type="Texture" id=17]
-[ext_resource path="res://Assets/buttons/Hover-Left.png" type="Texture" id=18]
 
-[sub_resource type="StyleBoxTexture" id=4]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=18]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=1]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=2]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="StyleBoxTexture" id=3]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="DynamicFont" id=10]
 outline_size = 1
 font_data = ExtResource( 13 )
 
-[sub_resource type="StyleBoxTexture" id=11]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StyleBoxFlat" id=24]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 12 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StyleBoxFlat" id=25]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 11 )
-region_rect = Rect2( 0, 0, 32, 32 )
+[sub_resource type="StyleBoxFlat" id=26]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 15 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=27]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 18 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=28]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 17 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=29]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=8]
-texture = ExtResource( 16 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 14 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=22]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=14]
-texture = ExtResource( 9 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=23]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=15]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=16]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 8 )
-region_rect = Rect2( 0, 0, 64, 64 )
+[sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="pause_handler" type="Node2D"]
 pause_mode = 2
@@ -103,10 +199,13 @@ margin_top = 503.0
 margin_right = 115.0
 margin_bottom = 567.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 1 )
-custom_styles/disabled = SubResource( 2 )
-custom_styles/normal = SubResource( 3 )
+custom_styles/hover = SubResource( 18 )
+custom_styles/pressed = SubResource( 19 )
+custom_styles/normal = SubResource( 20 )
+
+[node name="Home" type="Sprite" parent="CanvasLayer/Button"]
+position = Vector2( 31, 31 )
+texture = ExtResource( 2 )
 
 [node name="Warning" type="Panel" parent="CanvasLayer/Button"]
 visible = false
@@ -116,14 +215,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = 276.0
 margin_top = -387.0
-margin_right = 526.0
+margin_right = 572.0
 margin_bottom = -209.0
 rect_min_size = Vector2( 250, 178 )
 
 [node name="WarningLabel" type="Label" parent="CanvasLayer/Button/Warning"]
-margin_left = 24.0
+margin_left = 54.0
 margin_top = 25.0
-margin_right = 126.0
+margin_right = 156.0
 margin_bottom = 41.0
 rect_scale = Vector2( 2, 2 )
 custom_colors/font_color = Color( 1, 0, 0, 1 )
@@ -133,7 +232,7 @@ custom_constants/line_spacing = 0
 custom_constants/shadow_offset_y = 12
 custom_constants/shadow_as_outline = 12
 custom_fonts/font = SubResource( 10 )
-text = "!!!!WARNING!!!!"
+text = "!!!WARNING!!!"
 
 [node name="MessageLabel" type="Label" parent="CanvasLayer/Button/Warning"]
 margin_left = 8.0
@@ -143,13 +242,15 @@ margin_bottom = 120.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 10 )
-text = "Finish the client to save the game.
-You will lose unsaved progress."
+text = "Finish the client to save the game or you 
+will lose unsaved progress."
+align = 1
+valign = 1
 
 [node name="ContinueLabel" type="Label" parent="CanvasLayer/Button/Warning"]
-margin_left = 88.0
+margin_left = 106.0
 margin_top = 125.0
-margin_right = 327.0
+margin_right = 345.0
 margin_bottom = 160.0
 custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
@@ -157,26 +258,34 @@ custom_fonts/font = SubResource( 10 )
 text = "Continue?"
 
 [node name="Y" type="Button" parent="CanvasLayer/Button/Warning"]
-margin_left = 92.0
+margin_left = 110.0
 margin_top = 147.0
-margin_right = 104.0
-margin_bottom = 167.0
+margin_right = 135.0
+margin_bottom = 172.0
 rect_min_size = Vector2( 25, 25 )
-custom_styles/hover = SubResource( 11 )
-custom_styles/pressed = SubResource( 12 )
-custom_styles/disabled = SubResource( 13 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 24 )
+custom_styles/pressed = SubResource( 25 )
+custom_styles/normal = SubResource( 26 )
+
+[node name="Ok" type="Sprite" parent="CanvasLayer/Button/Warning/Y"]
+position = Vector2( 12, 13 )
+scale = Vector2( 0.359375, 0.359375 )
+texture = ExtResource( 5 )
 
 [node name="N" type="Button" parent="CanvasLayer/Button/Warning"]
-margin_left = 144.0
+margin_left = 162.0
 margin_top = 147.0
-margin_right = 156.0
-margin_bottom = 167.0
+margin_right = 187.0
+margin_bottom = 172.0
 rect_min_size = Vector2( 25, 25 )
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/disabled = SubResource( 8 )
-custom_styles/normal = SubResource( 9 )
+custom_styles/hover = SubResource( 27 )
+custom_styles/pressed = SubResource( 28 )
+custom_styles/normal = SubResource( 29 )
+
+[node name="Left" type="Sprite" parent="CanvasLayer/Button/Warning/N"]
+position = Vector2( 13, 12 )
+scale = Vector2( 0.359, 0.359 )
+texture = ExtResource( 4 )
 
 [node name="Volume" type="Button" parent="CanvasLayer"]
 margin_left = 151.0
@@ -184,10 +293,13 @@ margin_top = 506.0
 margin_right = 215.0
 margin_bottom = 570.0
 rect_min_size = Vector2( 64, 64 )
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 15 )
-custom_styles/disabled = SubResource( 16 )
-custom_styles/normal = SubResource( 17 )
+custom_styles/hover = SubResource( 21 )
+custom_styles/pressed = SubResource( 22 )
+custom_styles/normal = SubResource( 23 )
+
+[node name="Sound" type="Sprite" parent="CanvasLayer/Volume"]
+position = Vector2( 32, 32 )
+texture = ExtResource( 3 )
 
 [node name="HSlider" type="HSlider" parent="CanvasLayer"]
 visible = false
@@ -195,6 +307,9 @@ margin_left = 85.0
 margin_top = 475.0
 margin_right = 279.0
 margin_bottom = 499.0
+custom_styles/slider = SubResource( 30 )
+custom_styles/grabber_area_highlight = SubResource( 31 )
+custom_styles/grabber_area = SubResource( 32 )
 min_value = -80.0
 max_value = 10.0
 value = 10.0

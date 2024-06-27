@@ -91,7 +91,7 @@ func _ready():
 		0:
 			GameManager.shape_value = 0
 			side_size.visible = true
-			side_size.rect_position = Vector2(-171,-32)
+			side_size.rect_position = Vector2(-193,-32)
 			side_size.text = str(4 * random_value) + unit_type
 
 			side_size_2.visible = true
@@ -102,23 +102,130 @@ func _ready():
 
 		1:
 			GameManager.shape_value = 1
-			area_result 
+			side_size.visible = true
+			side_size.rect_position = Vector2(-64,-182)
+			side_size.text = str(2 * random_value) + unit_type
+			
+			side_size_2.visible = true
+			side_size_2.rect_position = Vector2(21,-107)
+			side_size_2.text = str(2 * random_value) + unit_type
+			
+			side_size_3.visible = true
+			side_size_3.rect_position = Vector2(42,-32)
+			side_size_3.text = str(2 * random_value) + unit_type
+			
+			side_size_4.visible = true
+			side_size_4.rect_position = Vector2(128,10)
+			side_size_4.text = str(1 * random_value) + unit_type
+			
+			side_size_5.visible = true
+			side_size_5.rect_position = Vector2(-21, 75)
+			side_size_5.text = str(4 * random_value) + unit_type
+			
+			side_size_6.visible = true
+			side_size_6.rect_position = Vector2(-193,0)
+			side_size_6.text = str(2 * random_value) + unit_type
+			area_result = (((2 * random_value) * (2 * random_value)) /2 ) + ((2 * random_value) * (1 * random_value)) + (((4 * random_value)-(2 * random_value)) * (2 * random_value))
 
 		2:
 			GameManager.shape_value = 2
-			area_result
+			side_size.visible = true
+			side_size.rect_position = Vector2(-193,0)
+			side_size.text = str(4 * random_value) + unit_type
+			
+			side_size_2.visible = true
+			side_size_2.rect_position = Vector2(-32,-192)
+			side_size_2.text = str(2 * random_value) + unit_type
+			
+			side_size_3.visible = true
+			side_size_3.rect_position = Vector2(64,-107)
+			side_size_3.text = str(2 * random_value) + unit_type
+			
+			side_size_4.visible = true
+			side_size_4.rect_position = Vector2(128,0)
+			side_size_4.text = str(1 * random_value) + unit_type
+			
+			side_size_5.visible = true
+			side_size_5.rect_position = Vector2(32,160)
+			side_size_5.text = str(2 * random_value) + unit_type
+			
+			side_size_6.visible = true
+			side_size_6.rect_position = Vector2(-107,160)
+			side_size_6.text = str(1* random_value) + unit_type
+			area_result = (((4 * random_value) - (2 * random_value)) * (1 * random_value)) + (((4* random_value) - (2 * random_value)) * (2 * random_value)) + ((2 * random_value) * (2 * random_value))
 
 		3:
 			GameManager.shape_value = 3
-			area_result 
+			side_size.visible = true
+			side_size.rect_position = Vector2(-193,-42)
+			side_size.text = str(4 * random_value) + unit_type
+			
+			side_size_2.visible = true
+			side_size_2.rect_position = Vector2(-53,-192)
+			side_size_2.text = str(2 * random_value) + unit_type
+			
+			side_size_3.visible = true
+			side_size_3.rect_position = Vector2(64,-107)
+			side_size_3.text = str(2 * random_value) + unit_type
+			area_result = ((2 * random_value) * (2 * random_value)) + ((((4 * random_value) - (2 * random_value)) *  (2 * random_value))/2)
 
 		4:
 			GameManager.shape_value = 4
-			area_result
+			side_size.visible = true
+			side_size.rect_position = Vector2(-195,-107)
+			side_size.text = str(2 * random_value) + unit_type
+			
+			side_size_2.visible = true
+			side_size_2.rect_position = Vector2(-53,-192)
+			side_size_2.text = str(3 * random_value) + unit_type
+			
+			side_size_3.visible = true
+			side_size_3.rect_position = Vector2(75,-150)
+			side_size_3.text = str(0.5 * random_value) + unit_type
+			
+			side_size_4.visible = true
+			side_size_4.rect_position = Vector2(150,-107)
+			side_size_4.text = str(0.5 * random_value) + unit_type
+			
+			side_size_5.visible = true
+			side_size_5.rect_position = Vector2(0,53)
+			side_size_5.text = str(1 * random_value) + unit_type
+			
+			side_size_6.visible = true
+			side_size_6.rect_position = Vector2(-97,-10)
+			side_size_6.text = str(1* random_value) + unit_type
+			area_result = ((2 * random_value) * (3 * random_value)) + ((0.5 * random_value) * (0.5 * random_value)) + ((1 * random_value)*(1 * random_value))
 
 		5:
 			GameManager.shape_value = 5
-			area_result 
+			side_size.visible = true
+			side_size.rect_position = Vector2(-195,64)
+			side_size.text = str(2 * random_value) + unit_type
+			
+			side_size_2.visible = true
+			side_size_2.rect_position = Vector2(-195,-75)
+			side_size_2.text = str(2 * random_value) + unit_type
+			
+			side_size_3.visible = true
+			side_size_3.rect_position = Vector2(-150,-128)
+			side_size_3.text = str(1 * random_value) + unit_type
+			
+			side_size_4.visible = true
+			side_size_4.rect_position = Vector2(-75,-128)
+			side_size_4.text = str(3 * random_value) + unit_type
+			
+			side_size_5.visible = true
+			side_size_5.rect_position = Vector2(10,-128)
+			side_size_5.text = str(2 * random_value) + unit_type
+			
+			side_size_6.visible = true
+			side_size_6.rect_position = Vector2(85,-42)
+			side_size_6.text = str(4 * random_value) + unit_type
+			
+			side_size_7.visible = true
+			side_size_7.rect_position = Vector2(85,42)
+			side_size_7.text = str(3 * random_value) + unit_type
+			area_result = ((1 * random_value) + (3 * random_value) + (2 * random_value)) * ((4 * random_value) + (3 * random_value))
 
 func _process(delta):
 	if rect_scale <= Vector2(1,1):
@@ -131,7 +238,6 @@ func _on_Check_Amswer_pressed():
 		$"Result/Check Amswer".disabled = true
 		$Popup_message.visible = true
 		$Popup_message.play_anim()
-		$CongratzEffect.emitting = true
 		final_timer.start()
 	else:
 		if GameManager.count_errors(client_day, client_num) >= 4:
@@ -142,14 +248,17 @@ func _on_Check_Amswer_pressed():
 			helper.visible = true
 
 		if int(result_answer.text) != int(area_result) and unit_answer.text != player_chose_unit:
+			helper.visible = true
 			wrong_result.visible = true
 			wrong_unit.visible = true
 
 		elif int(result_answer.text) != int(area_result) and unit_answer.text == player_chose_unit:
+			helper.visible = true
 			wrong_result.visible = true
 			wrong_unit.visible = false
 
 		elif unit_answer.text != player_chose_unit and int(result_answer.text) == int(area_result):
+			helper.visible = true
 			wrong_unit.visible = true
 			wrong_result.visible = false
 

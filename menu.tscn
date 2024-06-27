@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://menu.gd" type="Script" id=1]
 [ext_resource path="res://shader_brilho.gdshader" type="Shader" id=2]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=5]
 [ext_resource path="res://Assets/shaders/bright_shader.gdshader" type="Shader" id=6]
 
 [sub_resource type="ShaderMaterial" id=28]
@@ -18,28 +19,53 @@ shader_param/wait_cycles = 1.0
 size = 20
 font_data = ExtResource( 3 )
 
-[sub_resource type="Gradient" id=31]
-colors = PoolColorArray( 1, 1, 1, 0, 1, 1, 1, 1 )
+[sub_resource type="StyleBoxFlat" id=46]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="GradientTexture" id=32]
-gradient = SubResource( 31 )
+[sub_resource type="StyleBoxFlat" id=48]
+bg_color = Color( 0, 0.556863, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=30]
-texture = SubResource( 32 )
-region_rect = Rect2( 591, 74, 2, 3 )
+[sub_resource type="StyleBoxFlat" id=49]
+bg_color = Color( 0, 0.74902, 0.662745, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="Gradient" id=44]
-offsets = PoolRealArray( 0, 0.513089, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 0, 0.952941, 1, 0.447059, 1, 1, 1, 0 )
-
-[sub_resource type="GradientTexture" id=45]
-gradient = SubResource( 44 )
-
-[sub_resource type="StyleBoxTexture" id=33]
-texture = SubResource( 45 )
-region_rect = Rect2( 0, 0, 2048, 1 )
-
-[sub_resource type="StyleBoxTexture" id=29]
+[sub_resource type="StyleBoxFlat" id=47]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="ShaderMaterial" id=36]
 shader = ExtResource( 2 )
@@ -53,29 +79,66 @@ shader_param/wait_cycles = 1.0
 size = 20
 font_data = ExtResource( 3 )
 
-[sub_resource type="Gradient" id=42]
-offsets = PoolRealArray( 0 )
-colors = PoolColorArray( 1, 1, 1, 0.423529 )
+[sub_resource type="StyleBoxFlat" id=50]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="GradientTexture" id=43]
-gradient = SubResource( 42 )
+[sub_resource type="StyleBoxFlat" id=51]
+bg_color = Color( 0, 0.556863, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="StyleBoxTexture" id=37]
-texture = SubResource( 43 )
-region_rect = Rect2( 0, 0, 2048, 1 )
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 0, 0.74902, 0.662745, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="Gradient" id=40]
-offsets = PoolRealArray( 0, 0.0104712, 0.492147, 1 )
-colors = PoolColorArray( 0, 0, 0, 0, 0.297872, 0.297872, 0.297872, 0.297872, 0, 1, 0.929412, 0.415686, 1, 1, 1, 0 )
+[sub_resource type="StyleBoxFlat" id=54]
+bg_color = Color( 0.6, 0.6, 0.6, 0.862745 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0, 0, 0, 0 )
+border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
-[sub_resource type="GradientTexture" id=41]
-gradient = SubResource( 40 )
-
-[sub_resource type="StyleBoxTexture" id=38]
-texture = SubResource( 41 )
-region_rect = Rect2( 0, 0, 2048, 1 )
-
-[sub_resource type="StyleBoxTexture" id=39]
+[sub_resource type="StyleBoxFlat" id=53]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="DynamicFont" id=13]
 size = 80
@@ -91,6 +154,42 @@ shader_param/angle = 0.7854
 shader_param/speed = 1.0
 shader_param/wait_cycles = 1.0
 
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=57]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [node name="menu" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -104,13 +203,14 @@ scale = Vector2( 2.01, 2.09 )
 texture = ExtResource( 4 )
 
 [node name="Start_Shader" type="Button" parent="CanvasLayer"]
-self_modulate = Color( 0.286275, 0.286275, 0.286275, 1 )
+self_modulate = Color( 1, 1, 1, 0.588235 )
 material = SubResource( 28 )
 margin_left = 42.0
 margin_top = 217.0
 margin_right = 282.0
 margin_bottom = 257.0
 custom_fonts/font = SubResource( 14 )
+custom_styles/normal = SubResource( 46 )
 text = "CLIQUE PRA COMEÇAR"
 
 [node name="Start_Game" type="Button" parent="CanvasLayer"]
@@ -119,19 +219,20 @@ margin_top = 217.0
 margin_right = 282.0
 margin_bottom = 257.0
 custom_fonts/font = SubResource( 14 )
-custom_styles/hover = SubResource( 30 )
-custom_styles/pressed = SubResource( 33 )
-custom_styles/normal = SubResource( 29 )
+custom_styles/hover = SubResource( 48 )
+custom_styles/pressed = SubResource( 49 )
+custom_styles/normal = SubResource( 47 )
 text = "CLIQUE PRA COMEÇAR"
 
 [node name="Load_Shader" type="Button" parent="CanvasLayer"]
-self_modulate = Color( 0.282353, 0.282353, 0.282353, 1 )
+self_modulate = Color( 1, 1, 1, 0.588235 )
 material = SubResource( 36 )
 margin_left = 616.0
 margin_top = 217.0
 margin_right = 856.0
 margin_bottom = 257.0
 custom_fonts/font = SubResource( 19 )
+custom_styles/normal = SubResource( 50 )
 text = "CLIQUE PRA CARREGAR"
 
 [node name="Load_Game" type="Button" parent="CanvasLayer"]
@@ -140,9 +241,10 @@ margin_top = 217.0
 margin_right = 856.0
 margin_bottom = 257.0
 custom_fonts/font = SubResource( 19 )
-custom_styles/hover = SubResource( 37 )
-custom_styles/pressed = SubResource( 38 )
-custom_styles/normal = SubResource( 39 )
+custom_styles/hover = SubResource( 51 )
+custom_styles/pressed = SubResource( 52 )
+custom_styles/disabled = SubResource( 54 )
+custom_styles/normal = SubResource( 53 )
 text = "CLIQUE PRA CARREGAR"
 
 [node name="Label2" type="Label" parent="CanvasLayer"]
@@ -167,7 +269,22 @@ margin_bottom = 131.0
 custom_fonts/font = SubResource( 13 )
 text = "ShapeStylist"
 
+[node name="TTS" type="Button" parent="CanvasLayer"]
+margin_left = 657.0
+margin_top = 78.0
+margin_right = 689.0
+margin_bottom = 110.0
+custom_styles/hover = SubResource( 55 )
+custom_styles/pressed = SubResource( 56 )
+custom_styles/normal = SubResource( 57 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
 [connection signal="pressed" from="CanvasLayer/Start_Shader" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Start_Game" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Load_Shader" to="." method="_on_Load_Game_pressed"]
 [connection signal="pressed" from="CanvasLayer/Load_Game" to="." method="_on_Load_Game_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS" to="." method="_on_TTS_pressed"]
