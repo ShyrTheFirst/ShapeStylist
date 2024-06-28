@@ -79,7 +79,7 @@ func _ready():
 	else:
 		unit_type = "in"
 
-	var random_value = randi() % 5
+	var random_value = randi() % 5 +1
 
 	var pick_random_texture = int(rand_range(0,(texture_list.size()-1)))
 	if GameManager.first_run:

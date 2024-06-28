@@ -1,47 +1,114 @@
-"aviso" :
+______________________________________________________________
+"tutorial_1_0": 
+"Welcome to the tutorial!"
 
-"!!!WARNING!!!"
+"¡Bienvenido al tutorial!"
 
-"¡¡¡CUIDADO!!!"
+"tutorial_1_1": #cenario
+"This is the game's scenario. You can decorate it!"
+
+"Este es el escenario del juego. ¡Puedes decorarlo!"
+
+"tutorial_1_2": #dinheiro
+"This is your money, you can buy decorations with it."
+
+"Este es tu dinero, puedes comprar adornos con él."
+
+"tutorial_1_3": #menu e musica
+"Here we have the menu and sound buttons. /n
+If you want to go back to menu or adjust the sound,/n
+use those buttons."
+
+"Aquí tenemos los botones de menú y sonido. /n
+Si desea volver al menú o ajustar el sonido,/n
+usa esos botones."
+
+"tutorial_1_4": #proximo estagio
+"Click next to continue or use the arrows to see any /n
+information again."
+
+"Haga clic en Siguiente para /n
+continuar o utilice las flechas para ver cualquiera /n
+información nuevamente."
 _______________________________________________________________
-"aviso_mensagem":
+"tutorial_2_0": #comecar calculos
+"Here we start to calculate. You'll see \n
+a colored shape, you need to find it's area."
 
-"Finish the client to save the game or you /n
-will lose unsaved progress."
+"Aquí empezamos a calcular. Verás \n
+una forma coloreada, necesitas encontrar su área."
 
-"Finaliza el cliente para guardar el juego /n
-o perderás el progreso no guardado."
+"tutorial_2_1": #fita
+"Use the measure tape to find the shape's size,\n
+click the arrow you want to move and drag the tape\n
+to that side."
+
+"Usa la cinta métrica para encontrar el tamaño de la\n
+forma, haga clic en la flecha que desea mover y\n
+arrastre la cinta a ese lado."
+
+"tutorial_2_2": #valores
+"Use the values you got to calculate the area.\n
+Remember that you need to sum the area of all the\n
+shapes to get the result."
+
+"Usa los valores que obtuviste para calcular el área.\n
+Recuerda que necesitas sumar el área de todos los\n
+formas para obtener el resultado."
+
+"tutorial_2_3": #teclado virtual
+"Use the virtual keyboard in the game to input your\n
+answer. Don't forget about the unit!"
+
+"Usa el teclado virtual del juego para ingresar tu\n
+respuesta. ¡No te olvides de la unidad!"
+
+"tutorial_2_4": #resposta
+"Your answer will be shown here. Verify it before\n
+clicking 'OK' to confirm the answer."
+
+"Tu respuesta se mostrará aquí. Compruébalo antes\n
+haciendo clic en 'OK' para confirmar la respuesta."
+
+"tutorial_2_5": #ajuda
+"If you need help, click this button to see some tips"
+
+"Si necesitas ayuda, haz clic en este botón para\n
+ver algunos consejos."
+
+"tutorial_2_6": #proximo estagio
+"Click next to see the last part of the tutorial."
+
+"Haga clic en siguiente para ver la última parte\n
+del tutorial."
 _______________________________________________________________
-"continuar" :
+"tutorial_3_0": #mais calculo
+"This is the last part of the tutorial, in this stage\n you have more calculations to do."
 
-"Continue"
+"Esta es la última parte del tutorial, en esta etapa.\n tienes más cálculos que hacer."
 
-"Continuar"
-_______________________________________________________________
-"proximo":
+"tutorial_3_1": #medidas
+"Use the values given to calculate the area here,\n just like the last stage."
 
-"Next"
+"Utilice los valores dados para calcular el área aquí,\n al igual que la última etapa."
 
-"Proximo"
-_______________________________________________________________
-"insatisfeitos": #substituir pelo seguinte:
-"tried again:"
+"tutorial_3_2": #resposta e teclado
+"Here you have the virtual keyboard too."
 
-"tentou de novo:"
-_______________________________________________________________
-"dinheiro_total": #substituir pelo seguinte:
-"Week money earned"
+"Aquí tienes también el teclado virtual."
 
-"Denero ganho na semana"
+"tutorial_3_3": #ajuda
+"And you have the help button here."
 
-_______________________________________________________________
-_______________________________________________________________
-deletar ---->
-	background_2.text = LanguageSelector.frases["fundo_jogo"]
-	robot_2.text = LanguageSelector.frases["apresentacao"]
-	robot_4.text = LanguageSelector.frases["instrucao_inicial"]
-	metric_tape_2.text = LanguageSelector.frases["explicacao_fita"]
-	metric_tape_3.text = LanguageSelector.frases["validando_etapa"]
-	shape_2.text = LanguageSelector.frases["calcular_area"]
-	robot_6.text = LanguageSelector.frases["estilizar"]
-	
+"Y tienes el botón de ayuda aquí."
+
+"tutorial_3_4": #proximo estagio -> criativo
+"The next stage you just need to be creative.\n You'll choose a color and how you want the shape\n to fit the robot's head. Then you are done!"
+
+"La siguiente etapa sólo necesita ser creativo.\n Tú elegirás un color y cómo quieres la forma\n para adaptarse a la cabeza del robot.\n ¡Entonces ya está!"
+
+"tutorial_3_5": #começar jogo
+"When you are ready you can start the game.\n Have fun!!!"
+
+"Cuando estés listo podrás comenzar el juego.\n ¡¡¡Divertirse!!!"
+	 

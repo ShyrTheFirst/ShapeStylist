@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Assets/background.png" type="Texture" id=1]
 [ext_resource path="res://Assets/robot_with_head.png" type="Texture" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=9]
 [ext_resource path="res://Assets/tip1.png" type="Texture" id=10]
 [ext_resource path="res://Scenes/callables/Scripts/Popup_message.gd" type="Script" id=11]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=12]
 
 [sub_resource type="CircleShape2D" id=28]
 radius = 15.252
@@ -112,6 +113,42 @@ border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
 border_blend = true
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=60]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=61]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=62]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
 corner_radius_top_left = 25
 corner_radius_top_right = 25
 corner_radius_bottom_right = 25
@@ -472,6 +509,20 @@ margin_bottom = 40.0
 mouse_filter = 2
 custom_styles/panel = SubResource( 41 )
 
+[node name="TTS" type="Button" parent="Answer_text"]
+margin_left = 196.0
+margin_top = -1.0
+margin_right = 228.0
+margin_bottom = 31.0
+custom_styles/hover = SubResource( 60 )
+custom_styles/pressed = SubResource( 61 )
+custom_styles/normal = SubResource( 62 )
+
+[node name="Icon" type="Sprite" parent="Answer_text/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 12 )
+
 [node name="Numbers" type="GridContainer" parent="."]
 margin_left = 747.0
 margin_top = 48.0
@@ -690,6 +741,12 @@ position = Vector2( 218, 70 )
 scale = Vector2( 2.16667, 2.16667 )
 texture = ExtResource( 10 )
 
+[node name="Tip2" type="ColorRect" parent="Helper/Tip/Tip1"]
+margin_left = -32.0
+margin_top = -32.0
+margin_right = 43.0
+margin_bottom = -22.0
+
 [node name="EndStage" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -716,6 +773,7 @@ anims/popup = SubResource( 25 )
 [connection signal="mouse_exited" from="mouse_detection" to="." method="_on_mouse_detection_mouse_exited"]
 [connection signal="input_event" from="mouse_detection/Right_click_detection" to="." method="_on_Right_click_detection_input_event"]
 [connection signal="input_event" from="mouse_detection/Left_click_detection" to="." method="_on_Left_click_detection_input_event"]
+[connection signal="pressed" from="Answer_text/TTS" to="." method="_on_TTS_pressed"]
 [connection signal="pressed" from="Numbers/1" to="." method="_on_1_pressed"]
 [connection signal="pressed" from="Numbers/2" to="." method="_on_2_pressed"]
 [connection signal="pressed" from="Numbers/3" to="." method="_on_3_pressed"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scenes/Stages/Scripts/End Of The Day.gd" type="Script" id=2]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=3]
 [ext_resource path="res://Assets/buttons/Coin.png" type="Texture" id=6]
 [ext_resource path="res://Assets/deco/flower1.png" type="Texture" id=7]
 [ext_resource path="res://Assets/deco/flower3.png" type="Texture" id=8]
@@ -110,6 +111,42 @@ font_data = ExtResource( 1 )
 size = 64
 font_data = ExtResource( 1 )
 
+[sub_resource type="StyleBoxFlat" id=19]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=20]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=21]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [node name="End Of The Day" type="Node2D"]
 script = ExtResource( 2 )
 
@@ -120,7 +157,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Background" type="Sprite" parent="CanvasLayer/Panel"]
-position = Vector2( 210, -428 )
+position = Vector2( 586, -428 )
 scale = Vector2( 2.89546, 3.6072 )
 texture = ExtResource( 17 )
 
@@ -432,6 +469,48 @@ custom_fonts/font = SubResource( 14 )
 text = "10"
 icon = ExtResource( 6 )
 
+[node name="TTS" type="Button" parent="CanvasLayer"]
+margin_left = 471.0
+margin_top = 125.0
+margin_right = 503.0
+margin_bottom = 157.0
+custom_styles/hover = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TTS2" type="Button" parent="CanvasLayer"]
+margin_left = 471.0
+margin_top = 230.0
+margin_right = 503.0
+margin_bottom = 262.0
+custom_styles/hover = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS2"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="TTS3" type="Button" parent="CanvasLayer"]
+margin_left = 471.0
+margin_top = 346.0
+margin_right = 503.0
+margin_bottom = 378.0
+custom_styles/hover = SubResource( 19 )
+custom_styles/pressed = SubResource( 20 )
+custom_styles/normal = SubResource( 21 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS3"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
 [connection signal="pressed" from="CanvasLayer/Panel/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoFlores/FlorCor1" to="." method="_on_FlorCor1_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/GridContainer/DecoFlores2/FlorCor2" to="." method="_on_FlorCor2_pressed"]
@@ -445,3 +524,6 @@ icon = ExtResource( 6 )
 [connection signal="pressed" from="CanvasLayer/Panel/BuyDeco" to="." method="_on_BuyDeco_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/BuyDeco2" to="." method="_on_BuyDeco2_pressed"]
 [connection signal="pressed" from="CanvasLayer/Panel/BuyDeco3" to="." method="_on_BuyDeco3_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS" to="." method="_on_TTS_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS2" to="." method="_on_TTS2_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS3" to="." method="_on_TTS3_pressed"]

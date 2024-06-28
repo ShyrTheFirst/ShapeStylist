@@ -24,3 +24,7 @@ func _on_Button_pressed():
 func _on_Load_Game_pressed():
 	GameManager.load_day()
 	get_tree().change_scene_to(first_level)
+
+
+func _on_TTS_pressed():
+	LolApi.send_tts_message("Game_name")

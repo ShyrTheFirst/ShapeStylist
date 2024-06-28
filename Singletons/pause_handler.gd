@@ -6,6 +6,8 @@ onready var warning = $CanvasLayer/Button/Warning
 onready var warning_label = $CanvasLayer/Button/Warning/WarningLabel #Ajustar os textos
 onready var message_label = $CanvasLayer/Button/Warning/MessageLabel
 onready var continue_label = $CanvasLayer/Button/Warning/ContinueLabel
+onready var audio_stream = $AudioStreamPlayer2D
+var Music_playing : bool = false
 
 
 var slider_open : bool = false
@@ -13,11 +15,16 @@ onready var h_slider = $CanvasLayer/HSlider
 
 func _ready():
 	pass
-	#warning_label.text = LanguageSelector.frases["aviso"]
-	#message_label.text = LanguageSelector.frases["aviso_mensagem"]
-	#continue_label.text = LanguageSelector.frases["continuar"]
+	warning_label.text = LanguageSelector.frases["aviso"]
+	message_label.text = LanguageSelector.frases["aviso_mensagem"]
+	continue_label.text = LanguageSelector.frases["continuar"]
 
 func _process(delta):
+	if GameManager.game_started:
+		if Music_playing == false:
+			audio_stream.play()
+			Music_playing = true
+		
 	if GameManager.pausing:
 		get_tree().paused = true
 	else:

@@ -1,8 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/callables/Scripts/Quick_Tutorial_3.gd" type="Script" id=1]
 [ext_resource path="res://Assets/metric_tape.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Tutorial/tutorial_3_1.PNG" type="Texture" id=3]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=4]
+[ext_resource path="res://Assets/shaders/bright_shader.gdshader" type="Shader" id=5]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=28]
@@ -15,10 +17,51 @@ outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxFlat" id=30]
+bg_color = Color( 0, 0.556863, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id=31]
+bg_color = Color( 0, 0.74902, 0.662745, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=42]
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="StyleBoxFlat" id=32]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [sub_resource type="Shader" id=27]
 code = "shader_type canvas_item;
@@ -50,6 +93,90 @@ shader_param/wait_time = 0.1
 shader_param/speed = 1.0
 shader_param/alpha_boost = 3.0
 shader_param/color_bip = Color( 0, 0.717647, 0.811765, 1 )
+
+[sub_resource type="DynamicFont" id=37]
+size = 24
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="ShaderMaterial" id=38]
+shader = ExtResource( 5 )
+shader_param/shine_color = Color( 1, 1, 1, 1 )
+shader_param/line_width = 0.1
+shader_param/angle = 0.785398
+shader_param/speed = 0.5
+shader_param/wait_cycles = 0.2
+
+[sub_resource type="Curve" id=39]
+_data = [ Vector2( 0, 0 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="Shader" id=40]
+code = "shader_type canvas_item;
+
+// --- Uniforms --- //
+uniform float circle_width: hint_range(0.0, 1.0, 0.05) = 0.15;
+uniform float wait_time: hint_range(0.0, 5.0, 0.1) = 0.5;
+uniform float speed: hint_range(0.0, 10.0, 0.1) = 1.0;
+uniform float alpha_boost: hint_range(1.0, 5.0, 0.1) = 2.0;
+uniform vec4 color_bip : hint_color;
+
+// --- Functions --- //
+void fragment() {
+	float dist = distance(UV, vec2(0.5));
+	float mod_dist = dist - mod(TIME * speed, 0.75 + wait_time) + 0.5;
+	COLOR = color_bip;
+	COLOR.a *= 1.0 - step(0.5, mod_dist);
+	COLOR.a += step(0.5 - circle_width / 2.0, mod_dist) - 1.0;
+	COLOR.a -= 2.0 * dist;
+	COLOR.a *= alpha_boost;
+	
+}
+"
+
+[sub_resource type="ShaderMaterial" id=41]
+shader = SubResource( 40 )
+shader_param/circle_width = 0.2
+shader_param/wait_time = 0.1
+shader_param/speed = 1.0
+shader_param/alpha_boost = 3.0
+shader_param/color_bip = Color( 0, 0.717647, 0.811765, 1 )
+
+[sub_resource type="StyleBoxFlat" id=34]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=35]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=36]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
 
 [node name="Quick_Tutorial" type="Node2D"]
 script = ExtResource( 1 )
@@ -112,13 +239,109 @@ margin_bottom = -32.0
 custom_fonts/font = SubResource( 29 )
 custom_styles/hover = SubResource( 30 )
 custom_styles/pressed = SubResource( 31 )
+custom_styles/disabled = SubResource( 42 )
 custom_styles/normal = SubResource( 32 )
 text = "PROXIMO"
 
-[node name="Sprite2" type="Sprite" parent="CanvasLayer/Button"]
+[node name="Button_focus" type="Sprite" parent="CanvasLayer/Button"]
+visible = false
 material = SubResource( 33 )
 position = Vector2( 62, 16 )
 scale = Vector2( 3.66667, 3.20833 )
 texture = ExtResource( 2 )
 
+[node name="Panel2" type="Panel" parent="CanvasLayer"]
+margin_left = 306.0
+margin_top = 179.0
+margin_right = 935.0
+margin_bottom = 374.0
+
+[node name="Explanation" type="Label" parent="CanvasLayer/Panel2"]
+margin_left = 7.0
+margin_top = 19.0
+margin_right = 575.0
+margin_bottom = 148.0
+custom_fonts/font = SubResource( 37 )
+text = "Cuando estés listo podrás comenzar el juego.
+¡¡¡Divertirse!!!"
+align = 1
+clip_text = true
+percent_visible = -0.0416667
+
+[node name="Right" type="Line2D" parent="CanvasLayer/Panel2"]
+material = SubResource( 38 )
+position = Vector2( 563.493, 170.938 )
+scale = Vector2( 1.86111, 1.75 )
+points = PoolVector2Array( 18.75, -0.25, 2.75, -0.25 )
+width_curve = SubResource( 39 )
+default_color = Color( 0, 0.109804, 1, 1 )
+
+[node name="Right_detection" type="Button" parent="CanvasLayer/Panel2/Right"]
+margin_left = 0.809723
+margin_top = -9.0
+margin_right = 20.8097
+margin_bottom = 11.0
+flat = true
+
+[node name="Left" type="Line2D" parent="CanvasLayer/Panel2"]
+material = SubResource( 38 )
+position = Vector2( 43.507, 170.937 )
+rotation = -3.14159
+scale = Vector2( 1.86111, 1.75 )
+points = PoolVector2Array( 18.75, -0.25, 2.75, -0.25 )
+width_curve = SubResource( 39 )
+default_color = Color( 0, 0.109804, 1, 1 )
+
+[node name="Left_detection" type="Button" parent="CanvasLayer/Panel2/Left"]
+margin_left = 1.34702
+margin_top = -10.3217
+margin_right = 19.347
+margin_bottom = 9.67825
+flat = true
+
+[node name="sides1_focus" type="Sprite" parent="CanvasLayer/Panel2"]
+visible = false
+material = SubResource( 41 )
+position = Vector2( -81, 25 )
+scale = Vector2( 3.66667, 3.20833 )
+texture = ExtResource( 2 )
+
+[node name="sides2_focus" type="Sprite" parent="CanvasLayer/Panel2"]
+visible = false
+material = SubResource( 41 )
+position = Vector2( 69, -124 )
+scale = Vector2( 3.66667, 3.20833 )
+texture = ExtResource( 2 )
+
+[node name="help_focus" type="Sprite" parent="CanvasLayer/Panel2"]
+visible = false
+material = SubResource( 41 )
+position = Vector2( 465, -145 )
+scale = Vector2( 3.66667, 3.20833 )
+texture = ExtResource( 2 )
+
+[node name="area_focus" type="Sprite" parent="CanvasLayer/Panel2"]
+visible = false
+material = SubResource( 41 )
+position = Vector2( -157, 298 )
+scale = Vector2( 3.66667, 3.20833 )
+texture = ExtResource( 2 )
+
+[node name="TTS" type="Button" parent="CanvasLayer"]
+margin_left = 886.0
+margin_top = 201.0
+margin_right = 918.0
+margin_bottom = 233.0
+custom_styles/hover = SubResource( 34 )
+custom_styles/pressed = SubResource( 35 )
+custom_styles/normal = SubResource( 36 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+
 [connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel2/Right/Right_detection" to="." method="_on_Right_detection_pressed"]
+[connection signal="pressed" from="CanvasLayer/Panel2/Left/Left_detection" to="." method="_on_Left_detection_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS" to="." method="_on_TTS_pressed"]

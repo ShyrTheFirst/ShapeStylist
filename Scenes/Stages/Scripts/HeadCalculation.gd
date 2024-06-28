@@ -59,7 +59,7 @@ func _ready():
 
 	randomize()
 	if !GameManager.first_run:
-		random_size = randi() % 2+1 + randf()
+		random_size = randi() % 2 +1 + randf()
 		random_size = stepify(random_size, 0.5)
 	else:
 		random_size = 1.0
@@ -300,3 +300,7 @@ func _on_Helper_pressed():
 func _on_EndStage_timeout():
 	GameManager.head_calculation_handler = false
 	queue_free()
+
+
+func _on_TTS_pressed():
+	LolApi.send_tts_message("texto_resultado")

@@ -155,4 +155,3 @@ func give_up():
 func _on_GiveUpCountdown_timeout():
 	GameManager.have_client = false
 	queue_free()
-	

@@ -1,9 +1,10 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://menu.gd" type="Script" id=1]
 [ext_resource path="res://shader_brilho.gdshader" type="Shader" id=2]
 [ext_resource path="res://Assets/Pixellari.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/background.png" type="Texture" id=4]
+[ext_resource path="res://Assets/ButtonsOutline/talking_head.png" type="Texture" id=5]
 [ext_resource path="res://Assets/shaders/bright_shader.gdshader" type="Shader" id=6]
 
 [sub_resource type="ShaderMaterial" id=28]
@@ -153,6 +154,42 @@ shader_param/angle = 0.7854
 shader_param/speed = 1.0
 shader_param/wait_cycles = 1.0
 
+[sub_resource type="StyleBoxFlat" id=55]
+bg_color = Color( 0, 0.403922, 0.72549, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=56]
+bg_color = Color( 0, 0.74902, 0.662745, 1 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id=57]
+bg_color = Color( 0, 0.396078, 1, 0.392157 )
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color( 0.8, 0.8, 0.8, 0 )
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
 [node name="menu" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -232,7 +269,22 @@ margin_bottom = 131.0
 custom_fonts/font = SubResource( 13 )
 text = "ShapeStylist"
 
+[node name="TTS" type="Button" parent="CanvasLayer"]
+margin_left = 657.0
+margin_top = 78.0
+margin_right = 689.0
+margin_bottom = 110.0
+custom_styles/hover = SubResource( 55 )
+custom_styles/pressed = SubResource( 56 )
+custom_styles/normal = SubResource( 57 )
+
+[node name="Icon" type="Sprite" parent="CanvasLayer/TTS"]
+position = Vector2( 20, 16 )
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
 [connection signal="pressed" from="CanvasLayer/Start_Shader" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Start_Game" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Load_Shader" to="." method="_on_Load_Game_pressed"]
 [connection signal="pressed" from="CanvasLayer/Load_Game" to="." method="_on_Load_Game_pressed"]
+[connection signal="pressed" from="CanvasLayer/TTS" to="." method="_on_TTS_pressed"]
